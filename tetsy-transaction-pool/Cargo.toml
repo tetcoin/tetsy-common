@@ -1,5 +1,5 @@
 [package]
-description = "Generic transaction pool."
+description = "Generic tetsy transaction pool."
 name = "tetsy-transaction-pool"
 version = "2.0.3"
 license = "MIT OR Apache-2.0"
