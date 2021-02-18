@@ -3,7 +3,7 @@ name = "tetsy-kvdb"
 version = "0.9.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
-description = "Generic key-value trait"
+description = "Generic tetsy key-value trait"
 license = "MIT OR Apache-2.0"
 edition = "2018"
 
