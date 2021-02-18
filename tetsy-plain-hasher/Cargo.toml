@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-plain-hasher"
-description = "Hasher for 32-byte keys."
+description = "Tetsy Hasher for 32-byte keys."
 version = "0.3.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 license = "MIT OR Apache-2.0"
