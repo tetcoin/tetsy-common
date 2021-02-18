@@ -4,7 +4,7 @@ version = "0.5.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/tetcoin/tetsy-common"
-description = "Parity Codec serialization support for uint and fixed hash."
+description = "Tetsy Codec serialization support for uint and fixed hash."
 edition = "2018"
 
 [dependencies]
