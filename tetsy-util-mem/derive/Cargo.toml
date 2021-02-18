@@ -3,7 +3,7 @@ name = "tetsy-util-mem-derive"
 version = "0.1.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 license = "MIT OR Apache-2.0"
-description = "Crate for memory reporting"
+description = "Crate for tetsy memory reporting"
 repository = "https://github.com/paritytech/pariry-common/tetsy-util-mem/derive"
 
 [lib]
