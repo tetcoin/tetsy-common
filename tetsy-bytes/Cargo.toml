@@ -3,7 +3,7 @@ name = "tetsy-bytes"
 version = "0.1.2"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
-description = "byte utilities for Parity"
+description = "byte utilities for Tetsy"
 license = "MIT OR Apache-2.0"
 edition = "2018"
 
