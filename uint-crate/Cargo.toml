@@ -1,6 +1,6 @@
 [package]
-description = "Large fixed-size integer arithmetic"
-homepage = "http://parity.io"
+description = "Large fixed-size tetsy integer arithmetic"
+homepage = "http://tetcoin.org"
 repository = "https://github.com/tetcoin/tetsy-common"
 license = "MIT OR Apache-2.0"
 name = "uint-crate"
