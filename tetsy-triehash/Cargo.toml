@@ -2,7 +2,7 @@
 name = "tetsy-triehash"
 version = "0.8.4"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "In-memory patricia trie operations"
+description = "Tetsy Flavored In-memory Patricia Trie Operations"
 repository = "https://github.com/tetcoin/tetsy-common"
 license = "MIT OR Apache-2.0"
 edition = "2018"
