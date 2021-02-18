@@ -22,10 +22,10 @@ build_script:
   - cargo build --all
 
 test_script:
-  - cargo test --all --exclude uint --exclude fixed-hash
-  - cd fixed-hash/ && cargo test --all-features && cd ..
+  - cargo test --all --exclude uint --exclude tetsy-fixed-hash
+  - cd tetsy-fixed-hash/ && cargo test --all-features && cd ..
   - cd uint/ && cargo test --features=std,quickcheck --release && cd ..
-  - cd plain_hasher/ && cargo test --no-default-features && cd ..
-  - cd parity-util-mem/ && cargo test --no-default-features && cd ..
-  - cd parity-util-mem/ && cargo test --features=estimate-heapsize && cd ..
-  - cd parity-util-mem/ && cargo test && cd ..
+  - cd tetsy-plain-hasher/ && cargo test --no-default-features && cd ..
+  - cd tetsy-util-mem/ && cargo test --no-default-features && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=estimate-heapsize && cd ..
+  - cd tetsy-util-mem/ && cargo test && cd ..

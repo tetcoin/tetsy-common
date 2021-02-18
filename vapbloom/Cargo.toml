@@ -1,0 +1,42 @@
+[package]
+name = "vapbloom"
+version = "0.11.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+description = "Vapory bloom filter"
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/vapbloom"
+homepage = "https://github.com/tetcoin/tetsy-common"
+repository = "https://github.com/tetcoin/tetsy-common"
+edition = "2018"
+
+[dependencies]
+tiny-keccak = { version = "2.0", features = ["keccak"] }
+crunchy = { version = "0.2.2", default-features = false, features = ["limit_256"] }
+tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7", default-features = false }
+tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3", default-features = false, optional = true }
+tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.5.0", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
+
+[dev-dependencies]
+criterion = "0.3.0"
+rand = "0.8.0"
+hex-literal = "0.3.1"
+
+[features]
+default = ["std", "tetsy-rlp", "serialize", "rustc-hex"]
+std = ["tetsy-fixed-hash/std", "crunchy/std"]
+serialize = ["tetsy-impl-serde"]
+rustc-hex = ["tetsy-fixed-hash/rustc-hex"]
+arbitrary = ["tetsy-fixed-hash/arbitrary"]
+tetsy-rlp = ["tetsy-impl-rlp"]
+codec = ["tetsy-impl-codec"]
+
+[[bench]]
+name = "bloom"
+path = "benches/bloom.rs"
+harness = false
+
+[[bench]]
+name = "unrolling"
+path = "benches/unrolling.rs"
+harness = false

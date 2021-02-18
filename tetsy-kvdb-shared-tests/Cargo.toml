@@ -1,0 +1,10 @@
+[package]
+name = "tetsy-kvdb-shared-tests"
+version = "0.7.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+edition = "2018"
+description = "Shared tests for tetsy-kvdb functionality, to be executed against actual implementations"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+tetsy-kvdb = { path = "../tetsy-kvdb", version = "0.9" }
