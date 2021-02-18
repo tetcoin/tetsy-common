@@ -3,7 +3,7 @@ name = "tetsy-kvdb-memorydb"
 version = "0.9.0"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
-description = "A key-value in-memory database that implements the  `KeyValueDB` trait"
+description = "A Tetsy key-value in-memory database that implements the  `KeyValueDB` trait"
 license = "MIT OR Apache-2.0"
 edition = "2018"
 
