@@ -13,7 +13,7 @@ Support a very similar API as the built-in primitive integer types.
 In your `Cargo.toml` paste
 
 ```
-uint = "0.8"
+uint = "0.9.0"
 ```
 
 Import the macro
