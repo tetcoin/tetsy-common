@@ -19,14 +19,14 @@ uint = "0.9.0"
 Import the macro
 
 ```
-use uint::construct_uint;
+use uint_crate::construct_uint;
 ```
 
 If you're using pre-edition Rust in your main file
 
 ```
 #[macro_use]
-extern crate uint;
+extern crate uint_crate;
 ```
 
 Construct your own big unsigned integer type as follows.
