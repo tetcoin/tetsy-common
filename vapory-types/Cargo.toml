@@ -1,0 +1,24 @@
+[package]
+name = "vapory-types"
+version = "0.8.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+license = "MIT"
+homepage = "https://github.com/tetcoin/tetsy-common"
+description = "Vapory types"
+edition = "2018"
+
+[dependencies]
+vapbloom = { path = "../vapbloom", version = "0.8", default-features = false }
+tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.5", default-features = false, features = ["byteorder", "rustc-hex"] }
+uint-crate = { path = "../uint-crate", package = "uint-crate", version = "0.8", default-features = false }
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.6", features = ["tetsy-rlp", "byteorder", "rustc-hex"], default-features = false }
+tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.2", default-features = false, optional = true }
+tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.2", default-features = false }
+
+[dev-dependencies]
+serde_json = "1.0"
+
+[features]
+default = ["std", "serialize"]
+std = ["uint-crate/std", "tetsy-fixed-hash/std", "vapbloom/std", "tetsy-primitive-types/std"]
+serialize = ["std", "tetsy-impl-serde", "tetsy-primitive-types/serde", "vapbloom/serialize"]

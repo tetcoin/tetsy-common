@@ -1,0 +1,20 @@
+[package]
+name = "tetsy-keccak-hash"
+version = "0.4.0"
+description = "`tetsy-keccak-hash` is a set of utility functions to facilitate working with Keccak hashes (256/512 bits long)."
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/tetcoin/tetsy-common"
+readme = "README.md"
+license = "GPL-3.0"
+edition = "2018"
+
+[dependencies]
+tiny-keccak = "1.4"
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.6", default-features = false }
+
+[dev-dependencies]
+tempdir = "0.3"
+
+[features]
+default = ["std"]
+std = []

@@ -1,0 +1,11 @@
+[package]
+name = "tetsy-path"
+version = "0.1.2"
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/tetcoin/tetsy-common"
+description = "Path utilities"
+license = "GPL-3.0"
+edition = "2018"
+
+[dependencies]
+home = "0.5"

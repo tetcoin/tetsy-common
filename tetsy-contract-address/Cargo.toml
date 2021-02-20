@@ -1,0 +1,26 @@
+[package]
+name = "tetsy-contract-address"
+version = "0.3.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+license = "MIT"
+homepage = "https://github.com/tetcoin/tetsy-common"
+repository = "https://github.com/tetcoin/tetsy-common"
+description = "A utility crate to create a vapory contract address"
+documentation = "https://docs.rs/tetsy-contract-address/"
+edition = "2018"
+readme = "README.md"
+
+[dependencies]
+vapory-types = { version = "0.8", path = "../vapory-types" }
+tetsy-rlp = { version = "0.4", path = "../tetsy-rlp" }
+tetsy-keccak-hash = { version = "0.4", path = "../tetsy-keccak-hash", default-features = false }
+
+[features]
+default = []
+# this uses a nightly-only feature
+# to embed REAMDE.md into lib.rs module docs
+external_doc = []
+
+[package.metadata.docs.rs]
+# docs.rs builds the docs with nightly rust
+features = ["external_doc"]

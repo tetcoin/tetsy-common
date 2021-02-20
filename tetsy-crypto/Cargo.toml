@@ -1,0 +1,43 @@
+[package]
+name = "tetsy-crypto"
+version = "0.4.2"
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/tetcoin/tetsy-common"
+description = "Crypto utils used by vapstore and network."
+license = "GPL-3.0"
+autobenches = false
+edition = "2018"
+
+[[bench]]
+name = "bench"
+harness = false
+required-features = ["publickey"]
+
+[dependencies]
+tiny-keccak = "1.4"
+tetsy-secp256k1 = { version = "0.7.0", optional = true }
+vapory-types = { version = "0.8.0", path = "../vapory-types",  optional = true }
+lazy_static = { version = "1.0", optional = true }
+scrypt = { version = "0.2", default-features = false }
+ripemd160 = "0.8.0"
+sha2 = "0.8.0"
+digest = "0.8"
+hmac = "0.7"
+aes = "0.3.2"
+aes-ctr = "0.3.0"
+block-modes = "0.3.3"
+pbkdf2 = "0.3.0"
+rand = "0.7.2"
+rustc-hex = "2.0"
+subtle = "2.1"
+zeroize = "0.9.1"
+
+[dev-dependencies]
+criterion = "0.2"
+hex-literal = "0.2"
+
+[features]
+default = []
+# public key crypto utils
+# moved from vapkey module in tetsy vapory repository
+publickey = ["tetsy-secp256k1", "lazy_static", "vapory-types"]

@@ -1,0 +1,12 @@
+[package]
+name = "tetsy-kvdb-memorydb"
+version = "0.1.2"
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/tetcoin/tetsy-common"
+description = "A tetsy key-value in-memory database that implements the  `KeyValueDB` trait"
+license = "GPL-3.0"
+edition = "2018"
+
+[dependencies]
+parking_lot = "0.9"
+tetsy-kvdb = { version = "0.1", path = "../tetsy-kvdb" }

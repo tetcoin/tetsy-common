@@ -1,0 +1,16 @@
+[package]
+description = "Generic transaction pool."
+name = "tetsy-transaction-pool"
+version = "2.0.1"
+license = "GPL-3.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/tetcoin/tetsy-common"
+edition = "2018"
+
+[dependencies]
+log = "0.4"
+smallvec = "0.6"
+tetsy-trace-time = { path = "../tetsy-trace-time", version = "0.1" }
+
+[dev-dependencies]
+vapory-types = { version = "0.8", path = "../vapory-types" }

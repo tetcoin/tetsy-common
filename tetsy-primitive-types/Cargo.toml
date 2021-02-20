@@ -1,0 +1,24 @@
+[package]
+name = "tetsy-primitive-types"
+version = "0.6.0"
+authors = ["Parity Technologies <admin@parity.io>"]
+license = "Apache-2.0/MIT"
+homepage = "https://github.com/tetcoin/tetsy-common"
+description = "Primitive types shared by Vapory and Tetcore"
+
+[dependencies]
+tetsy-fixed-hash = { version = "0.5", path = "../tetsy-fixed-hash", default-features = false }
+uint-crate = { version = "0.8", path = "../uint-crate", default-features = false }
+tetsy-impl-serde = { version = "0.2.1", path = "impls/serde", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.4.1", path = "impls/codec", default-features = false, optional = true }
+tetsy-impl-rlp = { version = "0.2", path = "impls/rlp", default-features = false, optional = true }
+
+[features]
+default = ["std"]
+std = ["uint-crate/std", "tetsy-fixed-hash/std", "tetsy-impl-codec/std"]
+byteorder = ["tetsy-fixed-hash/byteorder"]
+libc = ["tetsy-fixed-hash/libc"]
+rustc-hex = ["tetsy-fixed-hash/rustc-hex"]
+serde = ["std", "tetsy-impl-serde"]
+codec = ["tetsy-impl-codec"]
+tetsy-rlp = ["tetsy-impl-rlp"]

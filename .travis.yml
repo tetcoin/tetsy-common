@@ -20,22 +20,22 @@ install:
 script:
   - cargo check --all --tests
   - cargo build --all
-  - cargo test --all --exclude uint --exclude fixed-hash
+  - cargo test --all --exclude uint --exclude tetsy-fixed-hash
   - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
-    cd contract-address/ && cargo test --features=external_doc && cd ..;
+    cd tetsy-contract-address/ && cargo test --features=external_doc && cd ..;
     fi
-  - cd ethbloom/ && cargo test --no-default-features --features="rustc-hex" && cargo check --benches && cd ..
-  - cd fixed-hash/ && cargo test --all-features && cargo test --no-default-features --features="byteorder,rustc-hex" && cd ..
-  - cd uint/ && cargo test --all-features && cargo test --no-default-features && cd ..
-  - cd keccak-hash/ && cargo test --no-default-features && cd ..
-  - cd plain_hasher/ && cargo test --no-default-features && cargo check --benches && cd ..
-  - cd parity-bytes/ && cargo test --no-default-features && cd ..
-  - cd parity-util-mem/ && cargo test --features=estimate-heapsize && cd ..
-  - cd parity-util-mem/ && cargo test --features=jemalloc-global && cd ..
-  - cd parity-util-mem/ && cargo test --features=mimalloc-global && cd ..
-  - cd parity-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
-  - cd rlp/ && cargo test --no-default-features && cargo check --benches && cd ..
-  - cd triehash/ && cargo check --benches && cd ..
+  - cd vapbloom/ && cargo test --no-default-features --features="rustc-hex" && cargo check --benches && cd ..
+  - cd tetsy-fixed-hash/ && cargo test --all-features && cargo test --no-default-features --features="byteorder,rustc-hex" && cd ..
+  - cd uint-crate/ && cargo test --all-features && cargo test --no-default-features && cd ..
+  - cd tetsy-keccak-hash/ && cargo test --no-default-features && cd ..
+  - cd tetsy-plain-hasher/ && cargo test --no-default-features && cargo check --benches && cd ..
+  - cd tetsy-bytes/ && cargo test --no-default-features && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=estimate-heapsize && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=jemalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=mimalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
+  - cd tetsy-rlp/ && cargo test --no-default-features && cargo check --benches && cd ..
+  - cd tetsy-triehash/ && cargo check --benches && cd ..
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-    cd kvdb-web/ && wasm-pack test --headless --chrome --firefox && cd ..;
+    cd tetsy-kvdb-web/ && wasm-pack test --headless --chrome --firefox && cd ..;
     fi
