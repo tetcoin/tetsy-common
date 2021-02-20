@@ -1,4 +1,4 @@
-# Uint
+# uint-crate
 
 ## Description
 
