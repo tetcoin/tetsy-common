@@ -13,7 +13,7 @@ rustc-hex = { version = "2.0", default-features = false }
 [dev-dependencies]
 criterion = "0.3"
 hex-literal = "0.2"
-tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.6", features = ["tetsy-impl-rlp"] }
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.6", features = ["tetsy-rlp"] }
 
 [features]
 default = ["std"]
