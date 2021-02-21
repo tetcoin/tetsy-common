@@ -1,20 +1,20 @@
 // Copyright 2015-2019 Parity Technologies (UK) Ltd.
-// This file is part of Parity.
+// This file is part of Tetsy.
 
-// Parity is free software: you can redistribute it and/or modify
+// Tetsy is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 
-// Parity is distributed in the hope that it will be useful,
+// Tetsy is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with Parity.  If not, see <http://www.gnu.org/licenses/>.
+// along with Tetsy.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Crate for parity memory management related utilities.
+//! Crate for tetsy memory management related utilities.
 //! It includes global allocator choice, heap measurement and
 //! memory erasure.
 
@@ -65,13 +65,13 @@ pub mod sizeof;
 #[macro_use]
 mod malloc_size;
 
-#[cfg(feature = "ethereum-impls")]
+#[cfg(feature = "vapory-impls")]
 pub mod impls;
 
 pub use allocators::MallocSizeOfExt;
 pub use malloc_size::{MallocSizeOf, MallocSizeOfOps};
 
-pub use parity_util_mem_derive::*;
+pub use tetsy_util_mem_derive::*;
 
 /// Heap size of structure.
 ///

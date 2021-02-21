@@ -1,23 +1,23 @@
 // Copyright 2015-2019 Parity Technologies (UK) Ltd.
-// This file is part of Parity.
+// This file is part of Tetsy.
 
-// Parity is free software: you can redistribute it and/or modify
+// Tetsy is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 
-// Parity is distributed in the hope that it will be useful,
+// Tetsy is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with Parity.  If not, see <http://www.gnu.org/licenses/>.
+// along with Tetsy.  If not, see <http://www.gnu.org/licenses/>.
 
 //! A crate for deriving the MallocSizeOf trait.
 //!
 //! This is a copy of Servo malloc_size_of_derive code, modified to work with
-//! our `parity_util_mem` library
+//! our `tetsy_util_mem` library
 
 extern crate proc_macro2;
 #[macro_use]
@@ -47,12 +47,12 @@ fn malloc_size_of_derive(s: synstructure::Structure) -> proc_macro2::TokenStream
 		} else if let syn::Type::Array(..) = binding.ast().ty {
 			Some(quote! {
 				for item in #binding.iter() {
-					sum += parity_util_mem::MallocSizeOf::size_of(item, ops);
+					sum += tetsy_util_mem::MallocSizeOf::size_of(item, ops);
 				}
 			})
 		} else {
 			Some(quote! {
-				sum += parity_util_mem::MallocSizeOf::size_of(#binding, ops);
+				sum += tetsy_util_mem::MallocSizeOf::size_of(#binding, ops);
 			})
 		}
 	});
@@ -63,14 +63,14 @@ fn malloc_size_of_derive(s: synstructure::Structure) -> proc_macro2::TokenStream
 	let mut where_clause = where_clause.unwrap_or(&parse_quote!(where)).clone();
 	for param in ast.generics.type_params() {
 		let ident = &param.ident;
-		where_clause.predicates.push(parse_quote!(#ident: parity_util_mem::MallocSizeOf));
+		where_clause.predicates.push(parse_quote!(#ident: tetsy_util_mem::MallocSizeOf));
 	}
 
 	let tokens = quote! {
-		impl #impl_generics parity_util_mem::MallocSizeOf for #name #ty_generics #where_clause {
+		impl #impl_generics tetsy_util_mem::MallocSizeOf for #name #ty_generics #where_clause {
 			#[inline]
 			#[allow(unused_variables, unused_mut, unreachable_code)]
-			fn size_of(&self, ops: &mut parity_util_mem::MallocSizeOfOps) -> usize {
+			fn size_of(&self, ops: &mut tetsy_util_mem::MallocSizeOfOps) -> usize {
 				let mut sum = 0;
 				match *self {
 					#match_body

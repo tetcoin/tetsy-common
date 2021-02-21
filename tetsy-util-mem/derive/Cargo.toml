@@ -1,10 +1,10 @@
 [package]
-name = "parity-util-mem-derive"
+name = "tetsy-util-mem-derive"
 version = "0.1.0"
 authors = ["Parity Technologies"]
 license = "MIT"
-description = "Crate for memory reporting"
-repository = "https://github.com/paritytech/pariry-common/parity-util-mem/derive"
+description = "Tetsy Crate for memory reporting"
+repository = "https://github.com/tetcoin/tetsy-common/tetsy-util-mem/derive"
 
 [lib]
 path = "lib.rs"
