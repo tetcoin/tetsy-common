@@ -15,7 +15,7 @@
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
 use tetsy_kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
-use parity_util_mem::MallocSizeOf;
+use tetsy_util_mem::MallocSizeOf;
 use parking_lot::RwLock;
 use std::{
 	collections::{BTreeMap, HashMap},

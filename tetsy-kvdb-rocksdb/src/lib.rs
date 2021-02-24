@@ -19,7 +19,7 @@ mod stats;
 
 use std::{cmp, collections::HashMap, convert::identity, error, fs, io, mem, path::Path, result};
 
-use parity_util_mem::MallocSizeOf;
+use tetsy_util_mem::MallocSizeOf;
 use parking_lot::{Mutex, MutexGuard, RwLock};
 use rocksdb::{
 	BlockBasedOptions, ColumnFamily, ColumnFamilyDescriptor, Error, Options, ReadOptions, WriteBatch, WriteOptions, DB,
@@ -243,7 +243,7 @@ fn static_property_or_warn(db: &DB, prop: &str) -> usize {
 }
 
 impl MallocSizeOf for DBAndColumns {
-	fn size_of(&self, ops: &mut parity_util_mem::MallocSizeOfOps) -> usize {
+	fn size_of(&self, ops: &mut tetsy_util_mem::MallocSizeOfOps) -> usize {
 		self.column_names.size_of(ops)
 			+ static_property_or_warn(&self.db, "rocksdb.estimate-table-readers-mem")
 			+ static_property_or_warn(&self.db, "rocksdb.cur-size-all-mem-tables")
