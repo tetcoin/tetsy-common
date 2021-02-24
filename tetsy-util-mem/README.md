@@ -1,6 +1,6 @@
-# parity-util-mem
+# tetsy-util-mem
 
-Collection of memory related utilities.
+Tetsy Collection of memory related utilities.
 
 ## Features
 

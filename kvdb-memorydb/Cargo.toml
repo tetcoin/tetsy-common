@@ -8,7 +8,7 @@ license = "GPL-3.0"
 edition = "2018"
 
 [dependencies]
-parity-util-mem = { path = "../parity-util-mem", version = "0.4" }
+tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.4" }
 parking_lot = "0.9.0"
 kvdb = { version = "0.3", path = "../kvdb" }
 

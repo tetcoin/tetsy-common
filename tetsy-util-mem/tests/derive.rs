@@ -16,7 +16,7 @@
 
 #![cfg(feature = "std")]
 
-use parity_util_mem::{MallocSizeOf, MallocSizeOfExt};
+use tetsy_util_mem::{MallocSizeOf, MallocSizeOfExt};
 
 #[test]
 fn derive_vec() {

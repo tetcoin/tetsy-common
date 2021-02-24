@@ -71,7 +71,7 @@ pub mod impls;
 pub use allocators::MallocSizeOfExt;
 pub use malloc_size::{MallocSizeOf, MallocSizeOfOps};
 
-pub use parity_util_mem_derive::*;
+pub use tetsy_util_mem_derive::*;
 
 /// Heap size of structure.
 ///
