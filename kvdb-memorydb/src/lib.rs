@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-use kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
+use tetsy_kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
 use parity_util_mem::MallocSizeOf;
 use parking_lot::RwLock;
 use std::{
@@ -117,7 +117,7 @@ impl KeyValueDB for InMemory {
 #[cfg(test)]
 mod tests {
 	use super::create;
-	use kvdb_shared_tests as st;
+	use tetsy_kvdb_shared_tests as st;
 	use std::io;
 
 	#[test]

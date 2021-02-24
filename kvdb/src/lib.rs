@@ -148,8 +148,8 @@ pub trait KeyValueDB: Sync + Send + parity_util_mem::MallocSizeOf {
 
 	/// Query statistics.
 	///
-	/// Not all kvdb implementations are able or expected to implement this, so by
-	/// default, empty statistics is returned. Also, not all kvdb implementation
+	/// Not all tetsy_kvdb implementations are able or expected to implement this, so by
+	/// default, empty statistics is returned. Also, not all tetsy_kvdb implementation
 	/// can return every statistic or configured to do so (some statistics gathering
 	/// may impede the performance and might be off by default).
 	fn io_stats(&self, _kind: IoStatsKind) -> IoStats {

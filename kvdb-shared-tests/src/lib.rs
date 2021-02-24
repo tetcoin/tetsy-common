@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Parity.  If not, see <http://www.gnu.org/licenses/>.
 
-//! Shared tests for kvdb functionality, to be executed against actual implementations.
+//! Shared tests for tetsy_kvdb functionality, to be executed against actual implementations.
 
-use kvdb::{IoStatsKind, KeyValueDB};
+use tetsy_kvdb::{IoStatsKind, KeyValueDB};
 use std::io;
 
 /// A test for `KeyValueDB::get`.

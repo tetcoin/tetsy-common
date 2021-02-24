@@ -55,7 +55,7 @@ macro_rules! impl_smallvec {
 	};
 }
 
-impl_smallvec!(32); // kvdb uses this
+impl_smallvec!(32); // tetsy_kvdb uses this
 impl_smallvec!(36); // trie-db uses this
 
 #[cfg(test)]

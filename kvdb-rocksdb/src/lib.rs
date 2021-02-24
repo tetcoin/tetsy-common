@@ -28,7 +28,7 @@ use rocksdb::{
 use crate::iter::KeyValuePair;
 use fs_swap::{swap, swap_nonatomic};
 use interleaved_ordered::interleave_ordered;
-use kvdb::{DBKey, DBOp, DBTransaction, DBValue, KeyValueDB};
+use tetsy_kvdb::{DBKey, DBOp, DBTransaction, DBValue, KeyValueDB};
 use log::{debug, warn};
 
 #[cfg(target_os = "linux")]
@@ -529,7 +529,7 @@ impl Database {
 				self.stats.tally_reads(1);
 				let guard = self.overlay.read();
 				let overlay =
-					guard.get(col as usize).ok_or_else(|| other_io_err("kvdb column index is out of bounds"))?;
+					guard.get(col as usize).ok_or_else(|| other_io_err("tetsy_kvdb column index is out of bounds"))?;
 				match overlay.get(key) {
 					Some(&KeyState::Insert(ref value)) => Ok(Some(value.clone())),
 					Some(&KeyState::Delete) => Ok(None),
@@ -748,13 +748,13 @@ impl KeyValueDB for Database {
 		Database::restore(self, new_db)
 	}
 
-	fn io_stats(&self, kind: kvdb::IoStatsKind) -> kvdb::IoStats {
+	fn io_stats(&self, kind: tetsy_kvdb::IoStatsKind) -> tetsy_kvdb::IoStats {
 		let taken_stats = match kind {
-			kvdb::IoStatsKind::Overall => self.stats.overall(),
-			kvdb::IoStatsKind::SincePrevious => self.stats.since_previous(),
+			tetsy_kvdb::IoStatsKind::Overall => self.stats.overall(),
+			tetsy_kvdb::IoStatsKind::SincePrevious => self.stats.since_previous(),
 		};
 
-		let mut stats = kvdb::IoStats::empty();
+		let mut stats = tetsy_kvdb::IoStats::empty();
 
 		stats.reads = taken_stats.raw.reads;
 		stats.writes = taken_stats.raw.writes;
@@ -779,7 +779,7 @@ impl Drop for Database {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use kvdb_shared_tests as st;
+	use tetsy_kvdb_shared_tests as st;
 	use std::io::{self, Read};
 	use tempdir::TempDir;
 

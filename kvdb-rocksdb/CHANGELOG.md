@@ -23,7 +23,7 @@ The format is based on [Keep a Changelog].
   - `Database::with_columns` still accepts `u32`, but panics if `0` is provided
   - `Database::open` panics if configuration with 0 columns is provided
 - Add `num_keys(col)` to get an estimate of the number of keys in a column (See [PR #285](https://github.com/paritytech/parity-common/pull/285)).
-- Remove `ElasticArray` and use the new `DBValue` (alias for `Vec<u8>`) and `DBKey` types from `kvdb`. (See [PR #282](https://github.com/paritytech/parity-common/pull/282/files))
+- Remove `ElasticArray` and use the new `DBValue` (alias for `Vec<u8>`) and `DBKey` types from `tetsy-kvdb`. (See [PR #282](https://github.com/paritytech/parity-common/pull/282/files))
 
 ## [0.2.0] - 2019-11-28
 - Switched away from using [parity-rocksdb](https://crates.io/crates/parity-rocksdb) in favour of upstream [rust-rocksdb](https://crates.io/crates/rocksdb) (see [PR #257](https://github.com/paritytech/parity-common/pull/257) for details)
