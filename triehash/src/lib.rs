@@ -31,7 +31,7 @@ use core::iter::once;
 use rstd::*;
 
 use hash_db::Hasher;
-use rlp::RlpStream;
+use tetsy_rlp::RlpStream;
 
 fn shared_prefix_len<T: Eq>(first: &[T], second: &[T]) -> usize {
 	first.iter().zip(second.iter()).position(|(f, s)| f != s).unwrap_or_else(|| cmp::min(first.len(), second.len()))
@@ -56,7 +56,7 @@ where
 	H: Hasher,
 	<H as hash_db::Hasher>::Out: cmp::Ord,
 {
-	trie_root::<H, _, _, _>(input.into_iter().enumerate().map(|(i, v)| (rlp::encode(&i), v)))
+	trie_root::<H, _, _, _>(input.into_iter().enumerate().map(|(i, v)| (tetsy_rlp::encode(&i), v)))
 }
 
 /// Generates a trie root hash for a vector of key-value tuples

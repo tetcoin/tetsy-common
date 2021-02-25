@@ -11,7 +11,7 @@
 
 pub use ethereum_types::{Address, H256, U256};
 use keccak_hash::keccak;
-use rlp::RlpStream;
+use tetsy_rlp::RlpStream;
 use std::ops::Deref;
 
 /// Represents an ethereum contract address

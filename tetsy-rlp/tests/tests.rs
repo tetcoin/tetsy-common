@@ -10,19 +10,19 @@ use core::{cmp, fmt};
 
 use hex_literal::hex;
 use primitive_types::{H160, U256};
-use rlp::{Decodable, DecoderError, Encodable, Rlp, RlpStream};
+use tetsy_rlp::{Decodable, DecoderError, Encodable, Rlp, RlpStream};
 
 #[test]
 fn test_rlp_display() {
 	let data = hex!("f84d0589010efbef67941f79b2a056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421a0c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470");
-	let rlp = Rlp::new(&data);
+	let rlp = tetsy_rlp::new(&data);
 	assert_eq!(format!("{}", rlp), "[\"0x05\", \"0x010efbef67941f79b2\", \"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421\", \"0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\"]");
 }
 
 #[test]
 fn length_overflow() {
 	let bs = [0xbf, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xe5];
-	let rlp = Rlp::new(&bs);
+	let rlp = tetsy_rlp::new(&bs);
 	let res: Result<u8, DecoderError> = rlp.as_val();
 	assert_eq!(Err(DecoderError::RlpInvalidLength), res);
 }
@@ -31,7 +31,7 @@ fn length_overflow() {
 fn rlp_at() {
 	let data = vec![0xc8, 0x83, b'c', b'a', b't', 0x83, b'd', b'o', b'g'];
 	{
-		let rlp = Rlp::new(&data);
+		let rlp = tetsy_rlp::new(&data);
 		assert!(rlp.is_list());
 		let animals: Vec<String> = rlp.as_list().unwrap();
 		assert_eq!(animals, vec!["cat".to_owned(), "dog".to_owned()]);
@@ -57,7 +57,7 @@ fn rlp_at() {
 fn rlp_at_with_offset() {
 	let data = vec![0xc8, 0x83, b'c', b'a', b't', 0x83, b'd', b'o', b'g'];
 	{
-		let rlp = Rlp::new(&data);
+		let rlp = tetsy_rlp::new(&data);
 		assert!(rlp.is_list());
 		let animals: Vec<String> = rlp.as_list().unwrap();
 		assert_eq!(animals, vec!["cat".to_owned(), "dog".to_owned()]);
@@ -86,7 +86,7 @@ fn rlp_at_with_offset() {
 fn rlp_at_err() {
 	let data = vec![0xc8, 0x83, b'c', b'a', b't', 0x83, b'd', b'o'];
 	{
-		let rlp = Rlp::new(&data);
+		let rlp = tetsy_rlp::new(&data);
 		assert!(rlp.is_list());
 
 		let cat_err = rlp.at(0).unwrap_err();
@@ -101,7 +101,7 @@ fn rlp_at_err() {
 fn rlp_iter() {
 	let data = vec![0xc8, 0x83, b'c', b'a', b't', 0x83, b'd', b'o', b'g'];
 	{
-		let rlp = Rlp::new(&data);
+		let rlp = tetsy_rlp::new(&data);
 		let mut iter = rlp.iter();
 
 		let cat = iter.next().unwrap();
@@ -130,7 +130,7 @@ where
 	T: Encodable,
 {
 	for t in &tests {
-		let res = rlp::encode(&t.0);
+		let res = tetsy_rlp::encode(&t.0);
 		assert_eq!(&res[..], &t.1[..]);
 	}
 }
@@ -144,7 +144,7 @@ where
 	T: Encodable,
 {
 	for t in &tests {
-		let res = rlp::encode_list(&t.0);
+		let res = tetsy_rlp::encode_list(&t.0);
 		assert_eq!(&res[..], &t.1[..]);
 	}
 }
@@ -275,7 +275,7 @@ where
 	T: Decodable + fmt::Debug + cmp::Eq,
 {
 	for t in &tests {
-		let res: Result<T, DecoderError> = rlp::decode(&t.1);
+		let res: Result<T, DecoderError> = tetsy_rlp::decode(&t.1);
 		assert!(res.is_ok());
 		let res = res.unwrap();
 		assert_eq!(&res, &t.0);
@@ -287,7 +287,7 @@ where
 	T: Decodable + fmt::Debug + cmp::Eq,
 {
 	for t in &tests {
-		let res: Vec<T> = rlp::decode_list(&t.1);
+		let res: Vec<T> = tetsy_rlp::decode_list(&t.1);
 		assert_eq!(res, t.0);
 	}
 }
@@ -411,7 +411,7 @@ fn decode_untrusted_vector_str() {
 #[test]
 fn test_rlp_data_length_check() {
 	let data = vec![0x84, b'c', b'a', b't'];
-	let rlp = Rlp::new(&data);
+	let rlp = tetsy_rlp::new(&data);
 
 	let as_val: Result<String, DecoderError> = rlp.as_val();
 	assert_eq!(Err(DecoderError::RlpInconsistentLengthAndData), as_val);
@@ -424,7 +424,7 @@ fn test_rlp_long_data_length_check() {
 		data.push(b'c');
 	}
 
-	let rlp = Rlp::new(&data);
+	let rlp = tetsy_rlp::new(&data);
 
 	let as_val: Result<String, DecoderError> = rlp.as_val();
 	assert_eq!(Err(DecoderError::RlpInconsistentLengthAndData), as_val);
@@ -437,7 +437,7 @@ fn test_the_exact_long_string() {
 		data.push(b'c');
 	}
 
-	let rlp = Rlp::new(&data);
+	let rlp = tetsy_rlp::new(&data);
 
 	let as_val: Result<String, DecoderError> = rlp.as_val();
 	assert!(as_val.is_ok());
@@ -450,7 +450,7 @@ fn test_rlp_2bytes_data_length_check() {
 		data.push(b'c');
 	}
 
-	let rlp = Rlp::new(&data);
+	let rlp = tetsy_rlp::new(&data);
 
 	let as_val: Result<String, DecoderError> = rlp.as_val();
 	assert_eq!(Err(DecoderError::RlpInconsistentLengthAndData), as_val);
@@ -467,7 +467,7 @@ fn test_rlp_nested_empty_list_encode() {
 #[test]
 fn test_rlp_list_length_overflow() {
 	let data: Vec<u8> = vec![0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00];
-	let rlp = Rlp::new(&data);
+	let rlp = tetsy_rlp::new(&data);
 	let as_val: Result<String, DecoderError> = rlp.val_at(0);
 	assert_eq!(Err(DecoderError::RlpIsTooShort), as_val);
 }
@@ -497,7 +497,7 @@ fn test_rlp_stream_unbounded_list() {
 fn test_rlp_is_int() {
 	for b in 0xb8..0xc0 {
 		let data: Vec<u8> = vec![b];
-		let rlp = Rlp::new(&data);
+		let rlp = tetsy_rlp::new(&data);
 		assert_eq!(rlp.is_int(), false);
 	}
 }
@@ -508,12 +508,12 @@ fn test_rlp_is_int() {
 #[test]
 fn test_canonical_string_encoding() {
 	assert_ne!(
-		Rlp::new(&[0xc0 + 4, 0xb7 + 1, 2, b'a', b'b']).val_at::<String>(0),
-		Rlp::new(&[0xc0 + 3, 0x82, b'a', b'b']).val_at::<String>(0)
+		tetsy_rlp::new(&[0xc0 + 4, 0xb7 + 1, 2, b'a', b'b']).val_at::<String>(0),
+		tetsy_rlp::new(&[0xc0 + 3, 0x82, b'a', b'b']).val_at::<String>(0)
 	);
 
 	assert_eq!(
-		Rlp::new(&[0xc0 + 4, 0xb7 + 1, 2, b'a', b'b']).val_at::<String>(0),
+		tetsy_rlp::new(&[0xc0 + 4, 0xb7 + 1, 2, b'a', b'b']).val_at::<String>(0),
 		Err(DecoderError::RlpInvalidIndirection)
 	);
 }
@@ -524,12 +524,12 @@ fn test_canonical_string_encoding() {
 #[test]
 fn test_canonical_list_encoding() {
 	assert_ne!(
-		Rlp::new(&[0xc0 + 3, 0x82, b'a', b'b']).val_at::<String>(0),
-		Rlp::new(&[0xf7 + 1, 3, 0x82, b'a', b'b']).val_at::<String>(0)
+		tetsy_rlp::new(&[0xc0 + 3, 0x82, b'a', b'b']).val_at::<String>(0),
+		tetsy_rlp::new(&[0xf7 + 1, 3, 0x82, b'a', b'b']).val_at::<String>(0)
 	);
 
 	assert_eq!(
-		Rlp::new(&[0xf7 + 1, 3, 0x82, b'a', b'b']).val_at::<String>(0),
+		tetsy_rlp::new(&[0xf7 + 1, 3, 0x82, b'a', b'b']).val_at::<String>(0),
 		Err(DecoderError::RlpInvalidIndirection)
 	);
 }
@@ -539,11 +539,11 @@ fn test_canonical_list_encoding() {
 // https://github.com/paritytech/parity-common/issues/48
 #[test]
 fn test_inner_length_capping_for_short_lists() {
-	assert_eq!(Rlp::new(&[0xc0, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
-	assert_eq!(Rlp::new(&[0xc0 + 1, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
-	assert_eq!(Rlp::new(&[0xc0 + 2, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
-	assert_eq!(Rlp::new(&[0xc0 + 3, 0x82, b'a', b'b']).val_at::<String>(0), Ok("ab".to_owned()));
-	assert_eq!(Rlp::new(&[0xc0 + 4, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
+	assert_eq!(tetsy_rlp::new(&[0xc0, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
+	assert_eq!(tetsy_rlp::new(&[0xc0 + 1, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
+	assert_eq!(tetsy_rlp::new(&[0xc0 + 2, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
+	assert_eq!(tetsy_rlp::new(&[0xc0 + 3, 0x82, b'a', b'b']).val_at::<String>(0), Ok("ab".to_owned()));
+	assert_eq!(tetsy_rlp::new(&[0xc0 + 4, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
 }
 
 // test described in
@@ -584,15 +584,15 @@ fn test_nested_list_roundtrip() {
 	let items = (0..4).map(|i| Inner(i, i + 1)).collect();
 	let nest = Nest(items);
 
-	let encoded = rlp::encode(&nest);
-	let decoded = rlp::decode(&encoded).unwrap();
+	let encoded = tetsy_rlp::encode(&nest);
+	let decoded = tetsy_rlp::decode(&encoded).unwrap();
 
 	assert_eq!(nest, decoded);
 
 	let nest2 = Nest(vec![nest.clone(), nest]);
 
-	let encoded = rlp::encode(&nest2);
-	let decoded = rlp::decode(&encoded).unwrap();
+	let encoded = tetsy_rlp::encode(&nest2);
+	let decoded = tetsy_rlp::decode(&encoded).unwrap();
 
 	assert_eq!(nest2, decoded);
 }
@@ -604,7 +604,7 @@ fn test_nested_list_roundtrip() {
 fn test_list_at() {
 	let raw = hex!("f83e82022bd79020010db83c4d001500000000abcdef12820cfa8215a8d79020010db885a308d313198a2e037073488208ae82823a8443b9a355c5010203040531b9019afde696e582a78fa8d95ea13ce3297d4afb8ba6433e4154caa5ac6431af1b80ba76023fa4090c408f6b4bc3701562c031041d4702971d102c9ab7fa5eed4cd6bab8f7af956f7d565ee1917084a95398b6a21eac920fe3dd1345ec0a7ef39367ee69ddf092cbfe5b93e5e568ebc491983c09c76d922dc3");
 
-	let rlp = Rlp::new(&raw);
+	let rlp = tetsy_rlp::new(&raw);
 	let _rlp1 = rlp.at(1).unwrap();
 	let rlp2 = rlp.at(2).unwrap();
 	assert_eq!(rlp2.val_at::<u16>(2).unwrap(), 33338);

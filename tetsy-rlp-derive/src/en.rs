@@ -22,8 +22,8 @@ pub fn impl_encodable(ast: &syn::DeriveInput) -> TokenStream {
 	let stmts_len = stmts.len();
 	let stmts_len = quote! { #stmts_len };
 	let impl_block = quote! {
-		impl rlp::Encodable for #name {
-			fn rlp_append(&self, stream: &mut rlp::RlpStream) {
+		impl tetsy_rlp::Encodable for #name {
+			fn rlp_append(&self, stream: &mut tetsy_rlp::RlpStream) {
 				stream.begin_list(#stmts_len);
 				#(#stmts)*
 			}
@@ -58,8 +58,8 @@ pub fn impl_encodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 	let name = &ast.ident;
 
 	let impl_block = quote! {
-		impl rlp::Encodable for #name {
-			fn rlp_append(&self, stream: &mut rlp::RlpStream) {
+		impl tetsy_rlp::Encodable for #name {
+			fn rlp_append(&self, stream: &mut tetsy_rlp::RlpStream) {
 				#stmt
 			}
 		}
@@ -94,7 +94,7 @@ fn encodable_field(index: usize, field: &syn::Field) -> TokenStream {
 					{
 						&path.path.segments.first().expect("there must be at least 1 segment").ident
 					} else {
-						panic!("rlp_derive not supported");
+						panic!("tetsy_rlp_derive not supported");
 					}
 				} else {
 					unreachable!("Vec has only one angle bracketed type; qed")
@@ -105,6 +105,6 @@ fn encodable_field(index: usize, field: &syn::Field) -> TokenStream {
 			quote! { stream.append(&#id); }
 		}
 	} else {
-		panic!("rlp_derive not supported");
+		panic!("tetsy_rlp_derive not supported");
 	}
 }

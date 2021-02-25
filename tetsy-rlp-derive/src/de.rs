@@ -40,8 +40,8 @@ pub fn impl_decodable(ast: &syn::DeriveInput) -> TokenStream {
 	let name = &ast.ident;
 
 	let impl_block = quote! {
-		impl rlp::Decodable for #name {
-			fn decode(rlp: &rlp::Rlp) -> Result<Self, rlp::DecoderError> {
+		impl tetsy_rlp::Decodable for #name {
+			fn decode(rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
 				let result = #name {
 					#(#stmts)*
 				};
@@ -80,8 +80,8 @@ pub fn impl_decodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 	let name = &ast.ident;
 
 	let impl_block = quote! {
-		impl rlp::Decodable for #name {
-			fn decode(rlp: &rlp::Rlp) -> Result<Self, rlp::DecoderError> {
+		impl tetsy_rlp::Decodable for #name {
+			fn decode(rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
 				let result = #name {
 					#stmt
 				};
@@ -158,6 +158,6 @@ fn decodable_field(
 			quote! { #id: #single()?, }
 		}
 	} else {
-		panic!("rlp_derive not supported");
+		panic!("tetsy_rlp_derive not supported");
 	}
 }

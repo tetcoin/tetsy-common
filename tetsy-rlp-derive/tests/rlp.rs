@@ -6,8 +6,8 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-use rlp::{decode, encode};
-use rlp_derive::{RlpDecodable, RlpDecodableWrapper, RlpEncodable, RlpEncodableWrapper};
+use tetsy_rlp::{decode, encode};
+use tetsy_rlp_derive::{RlpDecodable, RlpDecodableWrapper, RlpEncodable, RlpEncodableWrapper};
 
 #[derive(Debug, PartialEq, RlpEncodable, RlpDecodable)]
 struct Item {
