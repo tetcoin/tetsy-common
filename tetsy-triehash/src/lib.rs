@@ -129,7 +129,7 @@ where
 	A: AsRef<[u8]>,
 	B: AsRef<[u8]>,
 	H: Hasher,
-	<H as hash_db::Hasher>::Out: cmp::Ord,
+	<H as tetsy_hash_db::Hasher>::Out: cmp::Ord,
 {
 	trie_root::<H, _, _, _>(input.into_iter().map(|(k, v)| (H::hash(k.as_ref()), v)))
 }
