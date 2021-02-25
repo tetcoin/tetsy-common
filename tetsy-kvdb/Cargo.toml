@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-kvdb"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
 description = "Generic key-value trait"
@@ -10,4 +10,4 @@ edition = "2018"
 [dependencies]
 smallvec = "1.0.0"
 bytes = { package = "tetsy-bytes", version = "0.1" }
-tetsy-util-mem = "0.4"
+tetsy-util-mem = "0.4.2"

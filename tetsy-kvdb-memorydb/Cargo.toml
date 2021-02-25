@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-kvdb-memorydb"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
 description = "A key-value in-memory database that implements the  `KeyValueDB` trait"
@@ -8,9 +8,9 @@ license = "GPL-3.0"
 edition = "2018"
 
 [dependencies]
-tetsy-util-mem = "0.4"
+tetsy-util-mem = "0.4.2"
 parking_lot = "0.9.0"
-tetsy-kvdb = { version = "0.3", path = "../tetsy-kvdb" }
+tetsy-kvdb = { version = "0.3.1", path = "../tetsy-kvdb" }
 
 [dev-dependencies]
-tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.1" }
+tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.1.1" }

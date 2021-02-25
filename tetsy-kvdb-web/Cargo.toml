@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-kvdb-web"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
 description = "A tetsy key-value database for use in browsers"
@@ -11,12 +11,12 @@ edition = "2018"
 [dependencies]
 wasm-bindgen = "0.2.54"
 js-sys = "0.3.31"
-tetsy-kvdb = { version = "0.3", path = "../tetsy-kvdb" }
-tetsy-kvdb-memorydb = { version = "0.3", path = "../tetsy-kvdb-memorydb" }
+tetsy-kvdb = { version = "0.3.1", path = "../tetsy-kvdb" }
+tetsy-kvdb-memorydb = { version = "0.3.1", path = "../tetsy-kvdb-memorydb" }
 futures = "0.3"
 log = "0.4.8"
 send_wrapper = "0.3.0"
-tetsy-util-mem = "0.4"
+tetsy-util-mem = "0.4.2"
 
 [dependencies.web-sys]
 version = "0.3.31"
