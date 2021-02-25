@@ -1,0 +1,44 @@
+[package]
+name = "tetsy-kvdb-web"
+version = "0.3.1"
+authors = ["Parity Technologies <admin@parity.io>"]
+repository = "https://github.com/paritytech/parity-common"
+description = "A key-value database for use in browsers"
+documentation = "https://docs.rs/tetsy-kvdb-web/"
+license = "GPL-3.0"
+edition = "2018"
+
+[dependencies]
+wasm-bindgen = "0.2.54"
+js-sys = "0.3.31"
+tetsy-kvdb = { version = "0.3.1", path = "../tetsy-kvdb" }
+tetsy-kvdb-memorydb = { version = "0.3.1", path = "../tetsy-kvdb-memorydb" }
+futures = "0.3"
+log = "0.4.8"
+send_wrapper = "0.3.0"
+tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.4.2", default-features = false }
+
+[dependencies.web-sys]
+version = "0.3.31"
+features = [
+	'console',
+	'Window',
+	'IdbFactory',
+	'IdbDatabase',
+	'IdbTransaction',
+	'IdbTransactionMode',
+	'IdbOpenDbRequest',
+	'IdbRequest',
+	'IdbObjectStore',
+	'Event',
+	'EventTarget',
+	'IdbCursor',
+	'IdbCursorWithValue',
+	'DomStringList',
+]
+
+[dev-dependencies]
+console_log = "0.1.2"
+tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.1.1" }
+wasm-bindgen-test = "0.3.4"
+wasm-bindgen-futures = "0.4.4"

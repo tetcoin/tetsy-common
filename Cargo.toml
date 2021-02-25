@@ -3,11 +3,11 @@ members = [
 	"contract-address",
 	"fixed-hash",
 	"keccak-hash",
-	"kvdb",
-	"kvdb-memorydb",
-	"kvdb-rocksdb",
-	"kvdb-shared-tests",
-	"kvdb-web",
+	"tetsy-kvdb",
+	"tetsy-kvdb-memorydb",
+	"tetsy-kvdb-rocksdb",
+	"tetsy-kvdb-shared-tests",
+	"tetsy-kvdb-web",
 	"parity-bytes",
 	"parity-crypto",
 	"parity-path",
@@ -17,9 +17,9 @@ members = [
 	"trace-time",
 	"triehash",
 	"uint",
-	"parity-util-mem",
+	"tetsy-util-mem",
 	"primitive-types",
 	"ethereum-types",
 	"ethbloom",
-	"parity-util-mem/derive"
+	"tetsy-util-mem/derive"
 ]
