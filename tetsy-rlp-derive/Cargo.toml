@@ -16,4 +16,4 @@ quote = "1.0.2"
 proc-macro2 = "1.0.8"
 
 [dev-dependencies]
-# tetsy-rlp = "0.4.5"
+tetsy-rlp = "0.4.5"
