@@ -8,12 +8,12 @@ license = "GPL-3.0"
 edition = "2018"
 
 [dependencies]
-hash-db = "0.15"
+tetsy-hash-db = "0.15"
 tetsy-rlp = { version = "0.4", path = "../tetsy-rlp" }
 
 [dev-dependencies]
 criterion = "0.3"
-keccak-hasher = "0.15"
+tetsy-keccak-hasher = "0.15"
 vapory-types = { version = "0.8", path = "../vapory-types" }
 tiny-keccak = "1.5"
 trie-standardmap = "0.15"
