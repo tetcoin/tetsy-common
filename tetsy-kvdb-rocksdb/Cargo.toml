@@ -27,7 +27,7 @@ tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.4.2", default-featur
 [dev-dependencies]
 alloc_counter = "0.0.4"
 criterion = "0.3"
-ethereum-types = { path = "../ethereum-types" }
+vapory-types = { path = "../vapory-types" }
 tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.1.1" }
 rand = "0.7.2"
 tempdir = "0.3.7"
