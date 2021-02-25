@@ -22,7 +22,7 @@ hex-literal = "0.3.1"
 [features]
 default = ["std"]
 std = [
-	"hash-db/std",
+	"tetsy-hash-db/std",
 	"tetsy-rlp/std",
 ]
 
