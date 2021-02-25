@@ -17,7 +17,7 @@ matrix:
       install:
         - cargo install cross
       script:
-        - cross test --target=aarch64-linux-android -p parity-util-mem
+        - cross test --target=aarch64-linux-android -p tetsy-util-mem
     - os: osx
       osx_image: xcode11.3
       addons:
@@ -51,10 +51,10 @@ script:
   - cd plain_hasher/ && cargo test --no-default-features && cargo check --benches && cd ..
   - cd parity-bytes/ && cargo test --no-default-features && cd ..
   - cd parity-crypto/ && cargo test --all-features && cd ..
-  - cd parity-util-mem/ && cargo test --features=estimate-heapsize && cd ..
-  - cd parity-util-mem/ && cargo test --features=jemalloc-global && cd ..
-  - cd parity-util-mem/ && cargo test --features=mimalloc-global && cd ..
-  - cd parity-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=estimate-heapsize && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=jemalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=mimalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
   - cd rlp/ && cargo test --no-default-features && cargo check --benches && cd ..
   - cd triehash/ && cargo check --benches && cd ..
   - cd kvdb-web/ && wasm-pack test --headless --firefox && cd ..

@@ -9,4 +9,4 @@ edition = "2018"
 
 [dependencies]
 smallvec = "1.0.0"
-parity-util-mem = { path = "../parity-util-mem", version = "0.5", default-features = false }
+tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.5.2", default-features = false }

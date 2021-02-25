@@ -7,7 +7,7 @@
 // except according to those terms.
 
 use kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
-use parity_util_mem::MallocSizeOf;
+use tetsy_util_mem::MallocSizeOf;
 use parking_lot::RwLock;
 use std::{
 	collections::{BTreeMap, HashMap},

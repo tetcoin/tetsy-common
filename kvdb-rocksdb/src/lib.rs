@@ -11,7 +11,7 @@ mod stats;
 
 use std::{cmp, collections::HashMap, convert::identity, error, fs, io, mem, path::Path, result};
 
-use parity_util_mem::MallocSizeOf;
+use tetsy_util_mem::MallocSizeOf;
 use parking_lot::{Mutex, MutexGuard, RwLock};
 use rocksdb::{
 	BlockBasedOptions, ColumnFamily, ColumnFamilyDescriptor, Error, Options, ReadOptions, WriteBatch, WriteOptions, DB,
@@ -232,7 +232,7 @@ struct DBAndColumns {
 }
 
 impl MallocSizeOf for DBAndColumns {
-	fn size_of(&self, ops: &mut parity_util_mem::MallocSizeOfOps) -> usize {
+	fn size_of(&self, ops: &mut tetsy_util_mem::MallocSizeOfOps) -> usize {
 		let mut total = self.column_names.size_of(ops)
 			// we have at least one column always, so we can call property on it
 			+ self.db

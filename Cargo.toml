@@ -19,9 +19,9 @@ members = [
 	"trace-time",
 	"triehash",
 	"uint",
-	"parity-util-mem",
+	"tetsy-util-mem",
 	"primitive-types",
 	"ethereum-types",
 	"ethbloom",
-	"parity-util-mem/derive"
+	"tetsy-util-mem/derive"
 ]
