@@ -16,7 +16,7 @@
 
 //! Implementation of `MallocSize` primitive types.
 
-use primitive_types::{H160, H256, H512, U128, U256, U512};
+use tetsy_primitive_types::{H160, H256, H512, U128, U256, U512};
 
 malloc_size_of_is_0!(U128, U256, U512, H160, H256, H512);
 
