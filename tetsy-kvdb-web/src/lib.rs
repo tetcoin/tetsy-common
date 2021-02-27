@@ -16,13 +16,13 @@
 mod error;
 mod indexed_db;
 
-use kvdb::{DBTransaction, DBValue};
-use kvdb_memorydb::{self as in_memory, InMemory};
+use tetsy_kvdb::{DBTransaction, DBValue};
+use tetsy_kvdb_memorydb::{self as in_memory, InMemory};
 use send_wrapper::SendWrapper;
 use std::io;
 
 pub use error::Error;
-pub use kvdb::KeyValueDB;
+pub use tetsy_kvdb::KeyValueDB;
 
 use futures::prelude::*;
 

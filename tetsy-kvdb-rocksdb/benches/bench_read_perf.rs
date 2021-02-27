@@ -28,7 +28,7 @@ use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use ethereum_types::H256;
 use rand::{distributions::Uniform, seq::SliceRandom, Rng};
 
-use kvdb_rocksdb::{Database, DatabaseConfig};
+use tetsy_kvdb_rocksdb::{Database, DatabaseConfig};
 
 #[global_allocator]
 static A: AllocCounterSystem = AllocCounterSystem;

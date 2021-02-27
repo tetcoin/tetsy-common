@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-use kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
+use tetsy_kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
 use tetsy_util_mem::MallocSizeOf;
 use parking_lot::RwLock;
 use std::{
@@ -109,7 +109,7 @@ impl KeyValueDB for InMemory {
 #[cfg(test)]
 mod tests {
 	use super::create;
-	use kvdb_shared_tests as st;
+	use tetsy_kvdb_shared_tests as st;
 	use std::io;
 
 	#[test]

@@ -15,7 +15,7 @@ use web_sys::{Event, IdbCursorWithValue, IdbDatabase, IdbOpenDbRequest, IdbReque
 use futures::channel;
 use futures::prelude::*;
 
-use kvdb::{DBOp, DBTransaction};
+use tetsy_kvdb::{DBOp, DBTransaction};
 
 use log::{debug, warn};
 use std::ops::Deref;
