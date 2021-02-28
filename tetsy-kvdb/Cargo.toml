@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-kvdb"
-version = "0.3.1"
+version = "0.3.2"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
 description = "Generic key-value trait"
