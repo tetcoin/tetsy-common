@@ -312,6 +312,12 @@ fn generate_options(config: &DatabaseConfig) -> Options {
 	opts
 }
 
+fn generate_read_options() -> ReadOptions {
+	let mut read_opts = ReadOptions::default();
+	read_opts.set_verify_checksums(false);
+	read_opts
+}
+
 /// Generate the block based options for RocksDB, based on the given `DatabaseConfig`.
 fn generate_block_based_options(config: &DatabaseConfig) -> BlockBasedOptions {
 	let mut block_opts = BlockBasedOptions::default();
@@ -319,12 +325,16 @@ fn generate_block_based_options(config: &DatabaseConfig) -> BlockBasedOptions {
 	// Set cache size as recommended by
 	// https://github.com/facebook/rocksdb/wiki/Setup-Options-and-Basic-Tuning#block-cache-size
 	let cache_size = config.memory_budget() / 3;
-	block_opts.set_lru_cache(cache_size);
-	// "index and filter blocks will be stored in block cache, together with all other data blocks."
-	// See: https://github.com/facebook/rocksdb/wiki/Memory-usage-in-RocksDB#indexes-and-filter-blocks
-	block_opts.set_cache_index_and_filter_blocks(true);
-	// Don't evict L0 filter/index blocks from the cache
-	block_opts.set_pin_l0_filter_and_index_blocks_in_cache(true);
+	if cache_size == 0 {
+		block_opts.disable_cache()
+	} else {
+		block_opts.set_lru_cache(cache_size);
+		// "index and filter blocks will be stored in block cache, together with all other data blocks."
+		// See: https://github.com/facebook/rocksdb/wiki/Memory-usage-in-RocksDB#indexes-and-filter-blocks
+		block_opts.set_cache_index_and_filter_blocks(true);
+		// Don't evict L0 filter/index blocks from the cache
+		block_opts.set_pin_l0_filter_and_index_blocks_in_cache(true);
+	}
 	block_opts.set_bloom_filter(10, true);
 
 	block_opts
@@ -443,11 +453,11 @@ impl Database {
 							match *state {
 								KeyState::Delete => {
 									bytes += key.len();
-									batch.delete_cf(cf, key).map_err(other_io_err)?
+									batch.delete_cf(cf, key);
 								}
 								KeyState::Insert(ref value) => {
 									bytes += key.len() + value.len();
-									batch.put_cf(cf, key, value).map_err(other_io_err)?
+									batch.put_cf(cf, key, value);
 								}
 							};
 						}
@@ -505,12 +515,12 @@ impl Database {
 					match op {
 						DBOp::Insert { col: _, key, value } => {
 							stats_total_bytes += key.len() + value.len();
-							batch.put_cf(cf, &key, &value).map_err(other_io_err)?
+							batch.put_cf(cf, &key, &value);
 						}
 						DBOp::Delete { col: _, key } => {
 							// We count deletes as writes.
 							stats_total_bytes += key.len();
-							batch.delete_cf(cf, &key).map_err(other_io_err)?
+							batch.delete_cf(cf, &key);
 						}
 					};
 				}
@@ -570,47 +580,59 @@ impl Database {
 	/// Get database iterator for flushed data.
 	/// Will hold a lock until the iterator is dropped
 	/// preventing the database from being closed.
+	// pub fn iter<'a>(&'a self, col: u32) -> impl Iterator<Item = KeyValuePair> + 'a {
+	//	let read_lock = self.db.read();
+	//	let optional = if read_lock.is_some() {
+	//		let overlay_data = {
+	//			let overlay = &self.overlay.read()[col as usize];
+	//			let mut overlay_data = overlay
+	//				.iter()
+	//				.filter_map(|(k, v)| match *v {
+	//					KeyState::Insert(ref value) => {
+	//						Some((k.clone().into_vec().into_boxed_slice(), value.clone().into_boxed_slice()))
+	//					}
+	//					KeyState::Delete => None,
+	//				})
+	//				.collect::<Vec<_>>();
+	//			overlay_data.sort();
+	//			overlay_data
+	//		};
+
+	//		let guarded = iter::ReadGuardedIterator::new(read_lock, col, &self.read_opts);
+	//		Some(interleave_ordered(overlay_data, guarded))
+	//	} else {
+	//		None
+	//	};
+	//	optional.into_iter().flat_map(identity)
+	//}
 	pub fn iter<'a>(&'a self, col: u32) -> impl Iterator<Item = KeyValuePair> + 'a {
 		let read_lock = self.db.read();
 		let optional = if read_lock.is_some() {
-			let overlay_data = {
-				let overlay = &self.overlay.read()[col as usize];
-				let mut overlay_data = overlay
-					.iter()
-					.filter_map(|(k, v)| match *v {
-						KeyState::Insert(ref value) => {
-							Some((k.clone().into_vec().into_boxed_slice(), value.clone().into_boxed_slice()))
-						}
-						KeyState::Delete => None,
-					})
-					.collect::<Vec<_>>();
-				overlay_data.sort();
-				overlay_data
-			};
-
-			let guarded = iter::ReadGuardedIterator::new(read_lock, col, &self.read_opts);
-			Some(interleave_ordered(overlay_data, guarded))
+			let read_opts = generate_read_options();
+			let guarded = iter::ReadGuardedIterator::new(read_lock, col, read_opts);
+			Some(guarded)
 		} else {
 			None
 		};
 		optional.into_iter().flat_map(identity)
 	}
-
 	/// Get database iterator from prefix for flushed data.
 	/// Will hold a lock until the iterator is dropped
 	/// preventing the database from being closed.
-	fn iter_from_prefix<'a>(&'a self, col: u32, prefix: &'a [u8]) -> impl Iterator<Item = iter::KeyValuePair> + 'a {
+	fn iter_with_prefix<'a>(&'a self, col: u32, prefix: &'a [u8]) -> impl Iterator<Item = iter::KeyValuePair> + 'a {
 		let read_lock = self.db.read();
 		let optional = if read_lock.is_some() {
-			let guarded = iter::ReadGuardedIterator::new_from_prefix(read_lock, col, prefix, &self.read_opts);
-			Some(interleave_ordered(Vec::new(), guarded))
+			let mut read_opts = generate_read_options();
+			// rocksdb doesn't work with an empty upper bound
+			if let Some(end_prefix) = kvdb::end_prefix(prefix) {
+				read_opts.set_iterate_upper_bound(end_prefix);
+			}
+			let guarded = iter::ReadGuardedIterator::new_with_prefix(read_lock, col, prefix, read_opts);
+			Some(guarded)
 		} else {
 			None
 		};
-		// We're not using "Prefix Seek" mode, so the iterator will return
-		// keys not starting with the given prefix as well,
-		// see https://github.com/facebook/rocksdb/wiki/Prefix-Seek-API-Changes
-		optional.into_iter().flat_map(identity).filter(move |(k, _)| k.starts_with(prefix))
+		optional.into_iter().flat_map(identity)
 	}
 
 	/// Close the database
