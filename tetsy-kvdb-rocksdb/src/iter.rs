@@ -105,7 +105,7 @@ where
 
 	/// Creates a new `ReadGuardedIterator` that maps `RwLock<RocksDB>` to `RwLock<DBIterator>`,
 	/// where `DBIterator` iterates over keys >= prefix.
-	pub fn new_from_prefix(
+	pub fn new_with_prefix(
 		read_lock: RwLockReadGuard<'a, Option<T>>,
 		col: u32,
 		prefix: &[u8],
