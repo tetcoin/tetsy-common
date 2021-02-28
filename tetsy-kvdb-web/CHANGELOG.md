@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog].
 
 ## [Unreleased]
 
+## [0.3.2] - 2020-02-28
+- Utilized tetsy-util-mem and upgrade rocksdb to 0.14
+
 ## [0.2.0] - 2019-12-19
 ### Changed
 - Default column support removed from the API
