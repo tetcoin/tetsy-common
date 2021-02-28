@@ -156,3 +156,20 @@ pub trait KeyValueDB: Sync + Send + tetsy_util_mem::MallocSizeOf {
 		IoStats::empty()
 	}
 }
+
+/// For a given start prefix (inclusive), returns the correct end prefix (non-inclusive).
+/// This assumes the key bytes are ordered in lexicographical order.
+/// Since key length is not limited, for some case we return `None` because there is
+/// no bounded limit (every keys in the serie `[]`, `[255]`, `[255, 255]` ...).
+pub fn end_prefix(prefix: &[u8]) -> Option<Vec<u8>> {
+	let mut end_range = prefix.to_vec();
+	while let Some(0xff) = end_range.last() {
+		end_range.pop();
+	}
+	if let Some(byte) = end_range.last_mut() {
+		*byte += 1;
+		Some(end_range)
+	} else {
+		None
+	}
+}
