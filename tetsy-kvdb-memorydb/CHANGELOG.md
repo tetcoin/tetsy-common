@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog].
 
 ## [Unreleased]
 
+## [0.3.2] - 2020-02-28
+- Utilized tetsy-util-mem and upgrade rocksdb to 0.14
+
 ## [0.3.0] - 2019-01-03
 - InMemory key-value database now can report memory used (via `MallocSizeOf`). [#292](https://github.com/paritytech/parity-common/pull/292)
 
