@@ -82,15 +82,15 @@ impl<'a, I: Iterator, T> Iterator for ReadGuardedIterator<'a, I, T> {
 pub trait IterationHandler {
 	type Iterator: Iterator<Item = KeyValuePair>;
 
-	/// Create an `Iterator` over a `ColumnFamily` corresponding to the passed index. Takes a
-	/// reference to a `ReadOptions` to allow configuration of the new iterator (see
+	/// Create an `Iterator` over a `ColumnFamily` corresponding to the passed index. Takes
+	/// `ReadOptions` to allow configuration of the new iterator (see
 	/// https://github.com/facebook/rocksdb/blob/master/include/rocksdb/options.h#L1169).
-	fn iter(&self, col: u32, read_opts: &ReadOptions) -> Self::Iterator;
-	/// Create an `Iterator` over a `ColumnFamily` corresponding to the passed index. Takes a
-	/// reference to a `ReadOptions` to allow configuration of the new iterator (see
+	fn iter(&self, col: u32, read_opts: ReadOptions) -> Self::Iterator;
+	/// Create an `Iterator` over a `ColumnFamily` corresponding to the passed index. Takes
+	/// `ReadOptions` to allow configuration of the new iterator (see
 	/// https://github.com/facebook/rocksdb/blob/master/include/rocksdb/options.h#L1169).
-	/// The iterator starts from the first key having the provided `prefix`.
-	fn iter_from_prefix(&self, col: u32, prefix: &[u8], read_opts: &ReadOptions) -> Self::Iterator;
+	/// The `Iterator` iterates over keys which start with the provided `prefix`.
+	fn iter_with_prefix(&self, col: u32, prefix: &[u8], read_opts: ReadOptions) -> Self::Iterator;
 }
 
 impl<'a, T> ReadGuardedIterator<'a, <&'a T as IterationHandler>::Iterator, T>
@@ -99,7 +99,7 @@ where
 {
 	/// Creates a new `ReadGuardedIterator` that maps `RwLock<RocksDB>` to `RwLock<DBIterator>`,
 	/// where `DBIterator` iterates over all keys.
-	pub fn new(read_lock: RwLockReadGuard<'a, Option<T>>, col: u32, read_opts: &ReadOptions) -> Self {
+	pub fn new(read_lock: RwLockReadGuard<'a, Option<T>>, col: u32, read_opts: ReadOptions) -> Self {
 		Self { inner: Self::new_inner(read_lock, |db| db.iter(col, read_opts)) }
 	}
 
@@ -109,9 +109,9 @@ where
 		read_lock: RwLockReadGuard<'a, Option<T>>,
 		col: u32,
 		prefix: &[u8],
-		read_opts: &ReadOptions,
+		read_opts: ReadOptions,
 	) -> Self {
-		Self { inner: Self::new_inner(read_lock, |db| db.iter_from_prefix(col, prefix, read_opts)) }
+		Self { inner: Self::new_inner(read_lock, |db| db.iter_with_prefix(col, prefix, read_opts)) }
 	}
 
 	fn new_inner(
@@ -128,15 +128,11 @@ where
 impl<'a> IterationHandler for &'a DBAndColumns {
 	type Iterator = DBIterator<'a>;
 
-	fn iter(&self, col: u32, read_opts: &ReadOptions) -> Self::Iterator {
-		self.db
-			.iterator_cf_opt(self.cf(col as usize), read_opts, IteratorMode::Start)
-			.expect("iterator params are valid; qed")
+	fn iter(&self, col: u32, read_opts: ReadOptions) -> Self::Iterator {
+		self.db.iterator_cf_opt(self.cf(col as usize), read_opts, IteratorMode::Start)
 	}
 
-	fn iter_from_prefix(&self, col: u32, prefix: &[u8], read_opts: &ReadOptions) -> Self::Iterator {
-		self.db
-			.iterator_cf_opt(self.cf(col as usize), read_opts, IteratorMode::From(prefix, Direction::Forward))
-			.expect("iterator params are valid; qed")
+	fn iter_with_prefix(&self, col: u32, prefix: &[u8], read_opts: ReadOptions) -> Self::Iterator {
+		self.db.iterator_cf_opt(self.cf(col as usize), read_opts, IteratorMode::From(prefix, Direction::Forward))
 	}
 }
