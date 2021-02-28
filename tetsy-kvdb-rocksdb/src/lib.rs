@@ -624,7 +624,7 @@ impl Database {
 		let optional = if read_lock.is_some() {
 			let mut read_opts = generate_read_options();
 			// rocksdb doesn't work with an empty upper bound
-			if let Some(end_prefix) = kvdb::end_prefix(prefix) {
+			if let Some(end_prefix) = tetsy_kvdb::end_prefix(prefix) {
 				read_opts.set_iterate_upper_bound(end_prefix);
 			}
 			let guarded = iter::ReadGuardedIterator::new_with_prefix(read_lock, col, prefix, read_opts);
