@@ -1,10 +1,15 @@
 [package]
 name = "tetsy-util-mem-derive"
 version = "0.1.0"
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "crate for memory reporting"
 license = "MIT OR Apache-2.0"
-description = "Crate for memory reporting"
-repository = "https://github.com/tetcoin/tetsy-common/tetsy-util-mem/derive"
+edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-util-mem-derive"
 
 [lib]
 path = "lib.rs"

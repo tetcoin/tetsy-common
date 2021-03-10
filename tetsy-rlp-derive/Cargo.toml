@@ -1,11 +1,15 @@
 [package]
-name = "rlp-derive"
+name = "tetsy-rlp-derive"
 version = "0.1.0"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
-license = "MIT OR Apache-2.0"
 description = "Derive macro for #[derive(RlpEncodable, RlpDecodable)]"
-homepage = "http://core.tetcoin.org"
+license = "MIT OR Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-rlp-derive"
 
 [lib]
 proc-macro = true
@@ -16,4 +20,4 @@ quote = "1.0.2"
 proc-macro2 = "1.0.8"
 
 [dev-dependencies]
-tetsy-rlp= { version = "0.5.0", path = "../rlp" }
+tetsy-rlp= { version = "0.5.0", path = "../tetsy-rlp" }

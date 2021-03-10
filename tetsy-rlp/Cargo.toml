@@ -9,7 +9,7 @@ keywords = [ "tetcoin", "tetcore", "vapory" ]
 categories = [ "cryptography::cryptocurrencies" ]
 homepage = "https://core.tetcoin.org"
 repository = "https://github.com/tetcoin/tetsy-common"
-documentation = "https://docs.rs/tetsy-primitive-types"
+documentation = "https://docs.rs/tetsy-rlp"
 
 [dependencies]
 bytes = { version = "1", default-features = false }

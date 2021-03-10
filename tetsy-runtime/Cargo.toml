@@ -2,13 +2,14 @@
 name = "tetsy-runtime"
 version = "0.1.2"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
-edition = "2018"
-
-description = "Tokio runtime wrapper"
+description = "tokio runtime wrapper"
 license = "GPL-3.0"
-readme = "README.md"
-homepage = "https://core.tetcoin.org/"
-keywords = ["tetsy", "runtime", "tokio"]
+edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory", "tetsy", "runtime", "tokio" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-runtime"
 include = ["Cargo.toml", "src/**/*.rs", "README.md", "CHANGELOG.md"]
 
 [dependencies]

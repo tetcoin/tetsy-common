@@ -31,7 +31,7 @@ use core::iter::once;
 use rstd::*;
 
 use hash_db::Hasher;
-use rlp::RlpStream;
+use tetsy_rlp::RlpStream;
 
 fn shared_prefix_len<T: Eq>(first: &[T], second: &[T]) -> usize {
 	first.iter().zip(second.iter()).position(|(f, s)| f != s).unwrap_or_else(|| cmp::min(first.len(), second.len()))
@@ -42,7 +42,7 @@ fn shared_prefix_len<T: Eq>(first: &[T], second: &[T]) -> usize {
 /// ```
 /// use hex_literal::hex;
 /// use vapory_types::H256;
-/// use triehash::ordered_trie_root;
+/// use tetsy_triehash::ordered_trie_root;
 /// use tetsy_keccak_hasher::KeccakHasher;
 ///
 /// let v = &["doe", "reindeer"];
@@ -56,14 +56,14 @@ where
 	H: Hasher,
 	<H as hash_db::Hasher>::Out: cmp::Ord,
 {
-	trie_root::<H, _, _, _>(input.into_iter().enumerate().map(|(i, v)| (rlp::encode(&i), v)))
+	trie_root::<H, _, _, _>(input.into_iter().enumerate().map(|(i, v)| (tetsy_rlp::encode(&i), v)))
 }
 
 /// Generates a trie root hash for a vector of key-value tuples
 ///
 /// ```
 /// use hex_literal::hex;
-/// use triehash::trie_root;
+/// use tetsy_triehash::trie_root;
 /// use vapory_types::H256;
 /// use tetsy_keccak_hasher::KeccakHasher;
 ///
@@ -102,7 +102,7 @@ where
 	let input = input.into_iter().zip(lens.windows(2)).map(|((_, v), w)| (&nibbles[w[0]..w[1]], v)).collect::<Vec<_>>();
 
 	let mut stream = RlpStream::new();
-	hash256rlp::<H, _, _>(&input, 0, &mut stream);
+	hash256tetsy_rlp::<H, _, _>(&input, 0, &mut stream);
 	H::hash(&stream.out())
 }
 
@@ -111,7 +111,7 @@ where
 /// ```
 /// use hex_literal::hex;
 /// use vapory_types::H256;
-/// use triehash::sec_trie_root;
+/// use tetsy_triehash::sec_trie_root;
 /// use tetsy_keccak_hasher::KeccakHasher;
 ///
 /// let v = vec![

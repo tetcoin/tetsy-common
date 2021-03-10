@@ -12,7 +12,7 @@ use log::trace;
 use std::time::Instant;
 
 #[macro_export]
-macro_rules! trace_time {
+macro_rules! tetsy_trace_time {
 	($name: expr) => {
 		let _timer = $crate::PerfTimer::new($name);
 	};

@@ -2,10 +2,14 @@
 name = "tetsy-util-mem"
 version = "0.8.0"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
-repository = "https://github.com/tetcoin/tetsy-common"
-description = "Collection of memory related utilities"
+description = "collection of memory related utilities"
 license = "MIT OR Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-util-mem"
 
 # Prevent multiple versions from being linked into the same program.
 links = "tetsy-util-mem-ban-duplicates"

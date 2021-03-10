@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 edition = "2018"
 keywords = [ "tetcoin", "tetcore", "vapory" ]
 categories = [ "cryptography::cryptocurrencies" ]
-homepage = "https://tetcoin.org"
+homepage = "https://core.tetcoin.org"
 repository = "https://github.com/tetcoin/tetsy-common"
 documentation = "https://docs.rs/vapbloom"
 

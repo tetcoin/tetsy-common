@@ -54,8 +54,8 @@ script:
   - cd tetsy-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
   - cd tetsy-primitive-types/ && cargo test --all-features && cd ..
   - cd tetsy-primitive-types/ && cargo test --no-default-features --features=serde_no_std && cd ..
-  - cd rlp/ && cargo test --no-default-features && cargo check --benches && cd ..
-  - cd triehash/ && cargo check --benches && cd ..
+  - cd tetsy-rlp/ && cargo test --no-default-features && cargo check --benches && cd ..
+  - cd tetsy-triehash/ && cargo check --benches && cd ..
   - cd tetsy-kvdb-web/ && wasm-pack test --headless --firefox && cd ..
   - cd vapbloom/ && cargo test --all-features && cd ..
   - cd vapory-types/ && cargo test --all-features && cd ..

@@ -11,7 +11,7 @@
 
 pub use vapory_types::{Address, H256, U256};
 use tetsy_keccak_hash::keccak;
-use rlp::RlpStream;
+use tetsy_rlp::RlpStream;
 use std::ops::Deref;
 
 /// Represents an vapory contract address

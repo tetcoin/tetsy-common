@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog].
 ## [Unreleased]
 - Added `num-traits` feature. [#480](https://github.com/tetcoin/tetsy-common/pull/480)
 ### Breaking
-- Updated `tetsy-impl-rlp` to `rlp` 0.5. [#463](https://github.com/tetcoin/tetsy-common/pull/463)
+- Updated `tetsy-impl-rlp` to `tetsy-rlp` 0.5. [#463](https://github.com/tetcoin/tetsy-common/pull/463)
 - Updated `uint` to 0.9. [#486](https://github.com/tetcoin/tetsy-common/pull/486)
 
 ## [0.7.3] - 2020-11-12

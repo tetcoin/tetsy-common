@@ -158,6 +158,6 @@ fn decodable_field(
 			quote! { #id: #single()?, }
 		}
 	} else {
-		panic!("rlp_derive not supported");
+		panic!("tetsy_rlp_derive not supported");
 	}
 }

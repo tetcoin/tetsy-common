@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog].
 ## [Unreleased]
 ### Breaking
 - Bump `rust-secp256k1` to v0.19, always allow zero signatures. [#438](https://github.com/tetcoin/tetsy-common/pull/438)
-- Updated `rlp` to 0.5. [#463](https://github.com/tetcoin/tetsy-common/pull/463)
+- Updated `tetsy-rlp` to 0.5. [#463](https://github.com/tetcoin/tetsy-common/pull/463)
 - Updated dependencies. [#483](https://github.com/tetcoin/tetsy-common/pull/483)
 - Remove deprecated trait impls `FromStr`/`TryFrom` for `Secret` [#495](https://github.com/tetcoin/tetsy-common/pull/495)
 
