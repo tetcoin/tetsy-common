@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-util-mem-derive"
-version = "0.1.0"
+version = "0.1.0-alpha"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "crate for memory reporting"
 license = "MIT OR Apache-2.0"
