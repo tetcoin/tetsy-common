@@ -13,7 +13,7 @@
 //! ```
 
 use criterion::{criterion_group, criterion_main};
-use uint::{construct_uint, uint_full_mul_reg};
+use uint_crate::{construct_uint, uint_full_mul_reg};
 
 construct_uint! {
 	pub struct U256(4);

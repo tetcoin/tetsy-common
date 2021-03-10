@@ -7,7 +7,7 @@
 // except according to those terms.
 
 #[macro_use]
-extern crate uint;
+extern crate uint_crate;
 
 construct_uint! {
 	pub struct U256(4);

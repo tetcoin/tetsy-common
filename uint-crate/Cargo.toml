@@ -1,13 +1,15 @@
 [package]
-description = "Large fixed-size integer arithmetic"
-homepage = "http://parity.io"
-repository = "https://github.com/paritytech/parity-common"
-license = "MIT OR Apache-2.0"
-name = "uint"
+name = "uint-crate"
 version = "0.9.0"
-authors = ["Parity Technologies <admin@parity.io>"]
-readme = "README.md"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "tetsy large fixed-size integer arithmetic"
+license = "MIT OR Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/uint-crate"
 
 [dependencies]
 byteorder = { version = "1.3.2", default-features = false }

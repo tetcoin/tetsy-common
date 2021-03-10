@@ -40,5 +40,5 @@ pub use crunchy::unroll;
 
 #[macro_use]
 #[rustfmt::skip]
-mod uint;
-pub use crate::uint::*;
+mod uint_crate;
+pub use crate::uint_crate::*;
