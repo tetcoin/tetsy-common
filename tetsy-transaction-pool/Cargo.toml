@@ -3,8 +3,8 @@ description = "Generic transaction pool."
 name = "transaction-pool"
 version = "2.0.3"
 license = "MIT OR Apache-2.0"
-authors = ["Parity Technologies <admin@parity.io>"]
-repository = "https://github.com/paritytech/parity-common"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+repository = "https://github.com/tetcoin/tetsy-common"
 edition = "2018"
 
 [dependencies]
@@ -12,4 +12,4 @@ log = "0.4.8"
 smallvec = "1.6.0"
 
 [dev-dependencies]
-ethereum-types = { version = "0.10.0", path = "../ethereum-types" }
+vapory-types = { version = "0.10.0", path = "../vapory-types" }

@@ -8,7 +8,7 @@
 
 //! Generic Transaction Pool
 //!
-//! An extensible and performant implementation of Ethereum Transaction Pool.
+//! An extensible and performant implementation of Vapory Transaction Pool.
 //! The pool stores ordered, verified transactions according to some pluggable
 //! `Scoring` implementation.
 //! The pool also allows you to construct a set of `pending` transactions according

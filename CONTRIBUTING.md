@@ -1,12 +1,10 @@
-# Contributing to parity-common
+# Contributing to tetsy-common
 
-parity-common welcomes contribution from everyone in the form of suggestions, bug
+tetsy-common welcomes contribution from everyone in the form of suggestions, bug
 reports, pull requests, and feedback. This document gives some guidance if you
 are thinking of helping us.
 
-Please reach out here in a GitHub issue or in the parity channel on [gitter] if we can do anything to help you contribute.
-
-[gitter]: https://gitter.im/paritytech/parity
+Please reach out here in a GitHub issue or on [gitter]: https://twitter.com/tetcoin if we can do anything to help you contribute.
 
 ## Submitting bug reports and feature requests
 
@@ -18,11 +16,11 @@ Verifiable example].
 [Minimal, Complete, and Verifiable example]: https://stackoverflow.com/help/mcve
 
 When making a feature request, please make it clear what problem you intend to
-solve with the feature, any ideas for how parity-common could support solving that problem, any possible alternatives, and any disadvantages.
+solve with the feature, any ideas for how tetsy-common could support solving that problem, any possible alternatives, and any disadvantages.
 
 ## Versioning
 
-As many crates in the rust ecosystem, all crates in parity-common follow [semantic versioning]. This means bumping PATCH version on bug fixes that don't break backwards compatibility, MINOR version on new features and MAJOR version otherwise (MAJOR.MINOR.PATCH). Versions < 1.0 are considered to have the format 0.MAJOR.MINOR, which means bumping MINOR version for all non-breaking changes.
+As many crates in the rust ecosystem, all crates in tetsy-common follow [semantic versioning]. This means bumping PATCH version on bug fixes that don't break backwards compatibility, MINOR version on new features and MAJOR version otherwise (MAJOR.MINOR.PATCH). Versions < 1.0 are considered to have the format 0.MAJOR.MINOR, which means bumping MINOR version for all non-breaking changes.
 
 If you bump a dependency that is publicly exposed in a crate's API (e.g. `pub use dependency;` or `pub field: dependency::Dependency`) and the version transition for the dependency was semver-breaking, then it is considered to be a breaking change for the consuming crate as well. To put it simply, if your change could cause a compilation error in user's code, it is a breaking change.
 
@@ -32,7 +30,7 @@ Bumping versions should be done in a separate from regular code changes PR.
 
 ## Releasing a new version
 
-This part of the guidelines is for parity-common maintainers.
+This part of the guidelines is for tetsy-common maintainers.
 
 When making a new release make sure to follow these steps:
 * Submit a PR with a version bump and list all major and breaking changes in the crate's changelog
@@ -46,7 +44,7 @@ e.g. `git tag impl-serde-v0.2.2` and push it with `git push origin impl-serde-v0
 
 We follow [Substrate Code of Conduct].
 
-[Substrate Code of Conduct]: https://github.com/paritytech/substrate/blob/master/CODE_OF_CONDUCT.adoc
+[Tetcore Code of Conduct]: https://github.com/tetcoin/tetcore/blob/master/CODE_OF_CONDUCT.adoc
 
 ## Attribution
 

@@ -1,10 +1,15 @@
 [package]
-name = "kvdb-shared-tests"
+name = "tetsy-kvdb-shared-tests"
 version = "0.6.0"
-authors = ["Parity Technologies <admin@parity.io>"]
-edition = "2018"
-description = "Shared tests for kvdb functionality, to be executed against actual implementations"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "shared tests for tetsy-kvdb functionality, to be executed against actual implementations"
 license = "MIT OR Apache-2.0"
+edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-kvdb-shared-tests"
 
 [dependencies]
-kvdb = { path = "../kvdb", version = "0.8" }
+tetsy-kvdb = { path = "../tetsy-kvdb", version = "0.8" }

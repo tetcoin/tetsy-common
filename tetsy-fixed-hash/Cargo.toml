@@ -1,13 +1,13 @@
 [package]
-name = "fixed-hash"
-version = "0.7.0"
-authors = ["Parity Technologies <admin@parity.io>"]
+name = "tetsy-fixed-hash"
+version = "0.7.0-alpha"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "macros to define custom fixed-size hash types"
 license = "MIT OR Apache-2.0"
 edition = "2018"
 keywords = [ "tetcoin", "tetcore", "vapory" ]
 categories = [ "cryptography::cryptocurrencies" ]
-homepage = "https://tetcoin.org"
+homepage = "https://core.tetcoin.org"
 repository = "https://github.com/tetcoin/tetsy-common"
 documentation = "https://docs.rs/tetsy-fixed-hash"
 

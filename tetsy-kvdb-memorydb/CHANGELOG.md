@@ -6,31 +6,31 @@ The format is based on [Keep a Changelog].
 
 ## [Unreleased]
 ### Breaking
-- Updated dependencies. [#470](https://github.com/paritytech/parity-common/pull/470)
+- Updated dependencies. [#470](https://github.com/tetcoin/tetsy-common/pull/470)
 
 ## [0.7.0] - 2020-06-24
-- Updated `kvdb` to 0.7. [#402](https://github.com/paritytech/parity-common/pull/402)
+- Updated `tetsy-kvdb` to 0.7. [#402](https://github.com/tetcoin/tetsy-common/pull/402)
 
 ## [0.6.0] - 2020-05-05
 ### Breaking
-- Updated to the new `kvdb` interface. [#313](https://github.com/paritytech/parity-common/pull/313)
+- Updated to the new `tetsy-kvdb` interface. [#313](https://github.com/tetcoin/tetsy-common/pull/313)
 
 ## [0.5.0] - 2020-03-16
-- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/paritytech/parity-common/pull/342)
-- Updated dependencies. [#361](https://github.com/paritytech/parity-common/pull/361)
+- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/tetcoin/tetsy-common/pull/342)
+- Updated dependencies. [#361](https://github.com/tetcoin/tetsy-common/pull/361)
 
 ## [0.4.0] - 2019-02-05
-- Bump parking_lot to 0.10. [#332](https://github.com/paritytech/parity-common/pull/332)
+- Bump parking_lot to 0.10. [#332](https://github.com/tetcoin/tetsy-common/pull/332)
 
 ## [0.3.1] - 2019-01-06
-- Updated features and feature dependencies. [#307](https://github.com/paritytech/parity-common/pull/307)
+- Updated features and feature dependencies. [#307](https://github.com/tetcoin/tetsy-common/pull/307)
 
 ## [0.3.0] - 2019-01-03
-- InMemory key-value database now can report memory used (via `MallocSizeOf`). [#292](https://github.com/paritytech/parity-common/pull/292)
+- InMemory key-value database now can report memory used (via `MallocSizeOf`). [#292](https://github.com/tetcoin/tetsy-common/pull/292)
 
 ## [0.2.0] - 2019-12-19
 ### Fixed
-- `iter_from_prefix` behaviour synced with the `kvdb-rocksdb`
+- `iter_from_prefix` behaviour synced with the `tetsy-kvdb-rocksdb`
 ### Changed
 - Default column support removed from the API
   - Column argument type changed from `Option<u32>` to `u32`

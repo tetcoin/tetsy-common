@@ -7,7 +7,7 @@
 // except according to those terms.
 
 use criterion::{criterion_group, criterion_main, Criterion};
-use ethbloom::{Bloom, Input};
+use vapbloom::{Bloom, Input};
 use hex_literal::hex;
 use tiny_keccak::{Hasher, Keccak};
 

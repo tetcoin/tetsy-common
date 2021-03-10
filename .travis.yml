@@ -17,7 +17,7 @@ matrix:
       install:
         - cargo install cross
       script:
-        - cross test --target=aarch64-linux-android -p parity-util-mem
+        - cross test --target=aarch64-linux-android -p tetsy-util-mem
     - os: osx
       osx_image: xcode11.3
       addons:
@@ -37,25 +37,25 @@ script:
     cargo fmt -- --check;
     fi
   - cargo check --workspace --tests --benches
-  - cargo test --workspace --exclude uint --exclude fixed-hash --exclude parity-crypto
+  - cargo test --workspace --exclude uint --exclude tetsy-fixed-hash --exclude tetsy-crypto
   - if [ "$TRAVIS_RUST_VERSION" == "nightly" ]; then
-    cd contract-address/ && cargo test --features=external_doc && cd ..;
+    cd tetsy-contract-address/ && cargo test --features=external_doc && cd ..;
     fi
-  - cd ethbloom/ && cargo test --no-default-features --features="rustc-hex" && cargo check --benches && cd ..
-  - cd fixed-hash/ && cargo test --all-features && cargo test --no-default-features --features="byteorder,rustc-hex" && cd ..
+  - cd vapbloom/ && cargo test --no-default-features --features="rustc-hex" && cargo check --benches && cd ..
+  - cd tetsy-fixed-hash/ && cargo test --all-features && cargo test --no-default-features --features="byteorder,rustc-hex" && cd ..
   - cd uint/ && cargo test --all-features && cargo test --no-default-features && cd ..
-  - cd keccak-hash/ && cargo test --no-default-features && cd ..
-  - cd plain_hasher/ && cargo test --no-default-features && cargo check --benches && cd ..
-  - cd parity-bytes/ && cargo test --no-default-features && cd ..
-  - cd parity-crypto/ && cargo test --all-features && cd ..
-  - cd parity-util-mem/ && cargo test --features=estimate-heapsize && cd ..
-  - cd parity-util-mem/ && cargo test --features=jemalloc-global && cd ..
-  - cd parity-util-mem/ && cargo test --features=mimalloc-global && cd ..
-  - cd parity-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
-  - cd primitive-types/ && cargo test --all-features && cd ..
-  - cd primitive-types/ && cargo test --no-default-features --features=serde_no_std && cd ..
+  - cd tetsy-keccak-hash/ && cargo test --no-default-features && cd ..
+  - cd tetsy-plain-hasher/ && cargo test --no-default-features && cargo check --benches && cd ..
+  - cd tetsy-bytes/ && cargo test --no-default-features && cd ..
+  - cd tetsy-crypto/ && cargo test --all-features && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=estimate-heapsize && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=jemalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --features=mimalloc-global && cd ..
+  - cd tetsy-util-mem/ && cargo test --no-default-features --features=dlmalloc-global && cd ..
+  - cd tetsy-primitive-types/ && cargo test --all-features && cd ..
+  - cd tetsy-primitive-types/ && cargo test --no-default-features --features=serde_no_std && cd ..
   - cd rlp/ && cargo test --no-default-features && cargo check --benches && cd ..
   - cd triehash/ && cargo check --benches && cd ..
-  - cd kvdb-web/ && wasm-pack test --headless --firefox && cd ..
-  - cd ethbloom/ && cargo test --all-features && cd ..
-  - cd ethereum-types/ && cargo test --all-features && cd ..
+  - cd tetsy-kvdb-web/ && wasm-pack test --headless --firefox && cd ..
+  - cd vapbloom/ && cargo test --all-features && cd ..
+  - cd vapory-types/ && cargo test --all-features && cd ..

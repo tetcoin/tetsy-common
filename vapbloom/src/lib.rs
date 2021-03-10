@@ -9,7 +9,7 @@
 //!
 //! ```
 //! use hex_literal::hex;
-//! use ethbloom::{Bloom, Input};
+//! use vapbloom::{Bloom, Input};
 //!
 //! use std::str::FromStr;
 //! let bloom = Bloom::from_str(
@@ -59,7 +59,7 @@ use impl_codec::impl_fixed_hash_codec;
 #[cfg(feature = "rlp")]
 use impl_rlp::impl_fixed_hash_rlp;
 #[cfg(feature = "serialize")]
-use impl_serde::impl_fixed_hash_serde;
+use tetsy_impl_serde::impl_fixed_hash_serde;
 use tiny_keccak::{Hasher, Keccak};
 
 // 3 according to yellowpaper

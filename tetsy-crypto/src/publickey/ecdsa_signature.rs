@@ -9,7 +9,7 @@
 //! Signature based on ECDSA, algorithm's description: https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm
 
 use super::{public_to_address, Address, Error, Message, Public, Secret};
-use ethereum_types::{H256, H520};
+use vapory_types::{H256, H520};
 use rustc_hex::{FromHex, ToHex};
 use secp256k1::{
 	key::{PublicKey, SecretKey},

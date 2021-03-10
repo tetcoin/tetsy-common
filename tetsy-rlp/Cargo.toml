@@ -1,11 +1,15 @@
 [package]
-name = "rlp"
+name = "tetsy-rlp"
 version = "0.5.0"
-description = "Recursive-length prefix encoding, decoding, and compression"
-repository = "https://github.com/paritytech/parity-common"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "recursive-length prefix encoding, decoding, and compression"
 license = "MIT OR Apache-2.0"
-authors = ["Parity Technologies <admin@parity.io>"]
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-primitive-types"
 
 [dependencies]
 bytes = { version = "1", default-features = false }
@@ -14,7 +18,7 @@ rustc-hex = { version = "2.0.1", default-features = false }
 [dev-dependencies]
 criterion = "0.3.0"
 hex-literal = "0.3.1"
-primitive-types = { path = "../primitive-types", version = "0.8", features = ["impl-rlp"] }
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.8", features = ["tetsy-impl-rlp"] }
 
 [features]
 default = ["std"]

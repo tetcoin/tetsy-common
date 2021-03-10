@@ -6,8 +6,8 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-use kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
-use parity_util_mem::MallocSizeOf;
+use tetsy_kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
+use tetsy_util_mem::MallocSizeOf;
 use parking_lot::RwLock;
 use std::{
 	collections::{BTreeMap, HashMap},
@@ -74,7 +74,7 @@ impl KeyValueDB for InMemory {
 							col.clear();
 						} else {
 							let start_range = Bound::Included(prefix.to_vec());
-							let keys: Vec<_> = if let Some(end_range) = kvdb::end_prefix(&prefix[..]) {
+							let keys: Vec<_> = if let Some(end_range) = tetsy_kvdb::end_prefix(&prefix[..]) {
 								col.range((start_range, Bound::Excluded(end_range))).map(|(k, _)| k.clone()).collect()
 							} else {
 								col.range((start_range, Bound::Unbounded)).map(|(k, _)| k.clone()).collect()
@@ -124,7 +124,7 @@ impl KeyValueDB for InMemory {
 #[cfg(test)]
 mod tests {
 	use super::create;
-	use kvdb_shared_tests as st;
+	use tetsy_kvdb_shared_tests as st;
 	use std::io;
 
 	#[test]

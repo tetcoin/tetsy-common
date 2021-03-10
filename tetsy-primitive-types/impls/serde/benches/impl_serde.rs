@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! benchmarking for impl_serde
+//! benchmarking for tetsy_impl_serde
 //! should be started with:
 //! ```bash
 //! cargo bench
@@ -15,7 +15,7 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion, ParameterizedBenchmark};
 use serde_derive::{Deserialize, Serialize};
 // TODO(niklasad1): use `uint_crate::construct_uint` when a new version of `uint_crate` is released
-use impl_serde::impl_uint_serde;
+use tetsy_impl_serde::impl_uint_serde;
 use uint_crate::*;
 
 mod input;
@@ -27,10 +27,10 @@ construct_uint! {
 impl_uint_serde!(U256, 4);
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Bytes(#[serde(with = "impl_serde::serialize")] Vec<u8>);
+struct Bytes(#[serde(with = "tetsy_impl_serde::serialize")] Vec<u8>);
 
-criterion_group!(impl_serde, u256_to_hex, hex_to_u256, bytes_to_hex, hex_to_bytes,);
-criterion_main!(impl_serde);
+criterion_group!(tetsy_impl_serde, u256_to_hex, hex_to_u256, bytes_to_hex, hex_to_bytes,);
+criterion_main!(tetsy_impl_serde);
 
 fn u256_to_hex(c: &mut Criterion) {
 	c.bench(

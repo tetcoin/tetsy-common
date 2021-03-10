@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-use crate::parity_crypto::publickey::Generator;
+use crate::tetsy_crypto::publickey::Generator;
 use criterion::{criterion_group, criterion_main, Bencher, Criterion};
 
 criterion_group!(benches, input_len, ecdh_agree,);
@@ -19,7 +19,7 @@ fn input_len(c: &mut Criterion) {
 		"ripemd",
 		|b: &mut Bencher, size: &usize| {
 			let data = vec![0u8; *size];
-			b.iter(|| parity_crypto::digest::ripemd160(&data[..]));
+			b.iter(|| tetsy_crypto::digest::ripemd160(&data[..]));
 		},
 		vec![100, 500, 1_000, 10_000, 100_000],
 	);
@@ -33,9 +33,9 @@ fn input_len(c: &mut Criterion) {
 			let iv = [0; 16];
 
 			b.iter(|| {
-				parity_crypto::aes::encrypt_128_ctr(&k[..], &iv[..], &data[..], &mut dest[..]).unwrap();
+				tetsy_crypto::aes::encrypt_128_ctr(&k[..], &iv[..], &data[..], &mut dest[..]).unwrap();
 				// same as encrypt but add it just in case
-				parity_crypto::aes::decrypt_128_ctr(&k[..], &iv[..], &data[..], &mut dest[..]).unwrap();
+				tetsy_crypto::aes::decrypt_128_ctr(&k[..], &iv[..], &data[..], &mut dest[..]).unwrap();
 			});
 		},
 		vec![100, 500, 1_000, 10_000, 100_000],
@@ -43,9 +43,9 @@ fn input_len(c: &mut Criterion) {
 }
 
 fn ecdh_agree(c: &mut Criterion) {
-	let keypair = parity_crypto::publickey::Random.generate().unwrap();
+	let keypair = tetsy_crypto::publickey::Random.generate().unwrap();
 	let public = keypair.public().clone();
 	let secret = keypair.secret().clone();
 
-	c.bench_function("ecdh_agree", move |b| b.iter(|| parity_crypto::publickey::ecdh::agree(&secret, &public)));
+	c.bench_function("ecdh_agree", move |b| b.iter(|| tetsy_crypto::publickey::ecdh::agree(&secret, &public)));
 }

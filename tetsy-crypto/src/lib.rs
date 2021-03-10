@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Crypto utils used by ethstore and network.
+//! Crypto utils used by vapstore and network.
 
 pub mod aes;
 pub mod digest;

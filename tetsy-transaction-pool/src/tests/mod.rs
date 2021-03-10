@@ -15,7 +15,7 @@ use self::tx_builder::TransactionBuilder;
 use std::sync::Arc;
 
 use super::*;
-use ethereum_types::{Address, H256, U256};
+use vapory_types::{Address, H256, U256};
 
 #[derive(Debug, PartialEq)]
 pub struct Transaction {

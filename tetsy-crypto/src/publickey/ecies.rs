@@ -10,7 +10,7 @@
 
 use super::{ecdh, Error, Generator, Public, Random, Secret};
 use crate::{aes, digest, hmac, is_equal};
-use ethereum_types::H128;
+use vapory_types::H128;
 
 const ENC_VERSION: u8 = 0x04;
 

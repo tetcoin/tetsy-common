@@ -12,24 +12,24 @@ repository = "https://github.com/tetcoin/tetsy-common"
 documentation = "https://docs.rs/tetsy-primitive-types"
 
 [dependencies]
-fixed-hash = { version = "0.7", path = "../fixed-hash", default-features = false }
-uint-crate = { version = "0.8.9", path = "../uint-crate", default-features = false }
-impl-serde = { version = "0.3.1", path = "impls/serde", default-features = false, optional = true }
-impl-codec = { version = "0.4.1", path = "impls/codec", default-features = false, optional = true }
+tetsy-fixed-hash = { version = "0.7.0-alpha", path = "../tetsy-fixed-hash", default-features = false }
+uint-crate = { version = "0.9.0-alpha", path = "../uint-crate", default-features = false }
+tetsy-impl-serde = { version = "0.3.1", path = "impls/serde", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.4.1", path = "impls/codec", default-features = false, optional = true }
 impl-num-traits = { version = "0.1.0", path = "impls/num-traits", default-features = false, optional = true }
-impl-rlp = { version = "0.3", path = "impls/rlp", default-features = false, optional = true }
+tetsy-impl-rlp = { version = "0.3", path = "impls/rlp", default-features = false, optional = true }
 scale-info = { version = "0.4", features = ["derive"], default-features = false, optional = true }
 
 [features]
 default = ["std"]
-std = ["uint/std", "fixed-hash/std", "impl-codec/std"]
-byteorder = ["fixed-hash/byteorder"]
-rustc-hex = ["fixed-hash/rustc-hex"]
-serde = ["std", "impl-serde", "impl-serde/std"]
-serde_no_std = ["impl-serde"]
-codec = ["impl-codec"]
-rlp = ["impl-rlp"]
-arbitrary = ["fixed-hash/arbitrary", "uint/arbitrary"]
+std = ["uint/std", "tetsy-fixed-hash/std", "tetsy-impl-codec/std"]
+byteorder = ["tetsy-fixed-hash/byteorder"]
+rustc-hex = ["tetsy-fixed-hash/rustc-hex"]
+serde = ["std", "tetsy-impl-serde", "tetsy-impl-serde/std"]
+serde_no_std = ["tetsy-impl-serde"]
+codec = ["tetsy-impl-codec"]
+rlp = ["tetsy-impl-rlp"]
+arbitrary = ["tetsy-fixed-hash/arbitrary", "uint/arbitrary"]
 fp-conversion = ["std"]
 num-traits = ["impl-num-traits"]
 

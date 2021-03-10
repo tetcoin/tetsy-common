@@ -1,6 +1,6 @@
-# parity-crypto
+# tetsy-crypto
 
-General cryptographic utilities for Ethereum.
+General cryptographic utilities for Vapory.
 
 
 ## Changelog

@@ -7,9 +7,9 @@ The format is based on [Keep a Changelog].
 ## [Unreleased]
 
 ## [2.0.3] - 2020-03-16
-- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/paritytech/parity-common/pull/342)
+- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/tetcoin/tetsy-common/pull/342)
 
 ## [2.0.2] - 2019-10-24
-- Updated to 2018 edition idioms. [#237](https://github.com/paritytech/parity-common/pull/237)
+- Updated to 2018 edition idioms. [#237](https://github.com/tetcoin/tetsy-common/pull/237)
 ### Dependencies
-- Updated dependencies. [#239](https://github.com/paritytech/parity-common/pull/239)
+- Updated dependencies. [#239](https://github.com/tetcoin/tetsy-common/pull/239)

@@ -7,4 +7,4 @@ The format is based on [Keep a Changelog].
 ## [Unreleased]
 
 ## [0.1.0] - 2020-02-13
-- Extracted from parity-ethereum repo. [#343](https://github.com/paritytech/parity-common/pull/343)
+- Extracted from tetsy-vapory repo. [#343](https://github.com/tetcoin/tetsy-common/pull/343)

@@ -7,7 +7,7 @@
 // except according to those terms.
 
 //! Submodule of crypto utils for working with public key crypto primitives
-//! If you are looking for git history please refer to the `ethkey` crate in the `parity-ethereum` repository.
+//! If you are looking for git history please refer to the `vapkey` crate in the `tetsy-vapory` repository.
 
 mod ecdsa_signature;
 mod extended_keys;
@@ -29,9 +29,9 @@ pub use self::{
 	secret_key::{Secret, ZeroizeSecretKey},
 };
 
-use ethereum_types::H256;
+use vapory_types::H256;
 
-pub use ethereum_types::{Address, Public};
+pub use vapory_types::{Address, Public};
 pub type Message = H256;
 
 /// The number -1 encoded as a secret key

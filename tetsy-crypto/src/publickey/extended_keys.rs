@@ -14,7 +14,7 @@
 
 pub use self::derivation::Error as DerivationError;
 use super::{Public, Secret};
-use ethereum_types::H256;
+use vapory_types::H256;
 use zeroize::Zeroize;
 
 /// Represents label that can be stored as a part of key derivation
@@ -204,7 +204,7 @@ mod derivation {
 	use super::super::ec_math_utils::CURVE_ORDER;
 	use super::{Derivation, Label};
 	use crate::{hmac, Keccak256};
-	use ethereum_types::{BigEndianHash, H256, H512, U256, U512};
+	use vapory_types::{BigEndianHash, H256, H512, U256, U512};
 	use secp256k1::{
 		key::{PublicKey, SecretKey},
 		SECP256K1,
@@ -384,7 +384,7 @@ mod tests {
 	use super::super::Secret;
 	use super::{derivation, Derivation};
 	use super::{ExtendedKeyPair, ExtendedPublic, ExtendedSecret};
-	use ethereum_types::{H128, H256, H512};
+	use vapory_types::{H128, H256, H512};
 	use std::str::FromStr;
 
 	fn master_chain_basic() -> (H256, H256) {

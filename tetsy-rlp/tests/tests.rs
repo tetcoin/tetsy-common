@@ -10,7 +10,7 @@ use core::{cmp, fmt};
 
 use bytes::{Bytes, BytesMut};
 use hex_literal::hex;
-use primitive_types::{H160, U256};
+use tetsy_primitive_types::{H160, U256};
 use rlp::{Decodable, DecoderError, Encodable, Rlp, RlpStream};
 
 #[test]
@@ -625,7 +625,7 @@ fn test_rlp_is_int() {
 
 // test described in
 //
-// https://github.com/paritytech/parity-common/issues/49
+// https://github.com/tetcoin/tetsy-common/issues/49
 #[test]
 fn test_canonical_string_encoding() {
 	assert_ne!(
@@ -641,7 +641,7 @@ fn test_canonical_string_encoding() {
 
 // test described in
 //
-// https://github.com/paritytech/parity-common/issues/49
+// https://github.com/tetcoin/tetsy-common/issues/49
 #[test]
 fn test_canonical_list_encoding() {
 	assert_ne!(
@@ -657,7 +657,7 @@ fn test_canonical_list_encoding() {
 
 // test described in
 //
-// https://github.com/paritytech/parity-common/issues/48
+// https://github.com/tetcoin/tetsy-common/issues/48
 #[test]
 fn test_inner_length_capping_for_short_lists() {
 	assert_eq!(Rlp::new(&[0xc0, 0x82, b'a', b'b']).val_at::<String>(0), Err(DecoderError::RlpIsTooShort));
@@ -669,7 +669,7 @@ fn test_inner_length_capping_for_short_lists() {
 
 // test described in
 //
-// https://github.com/paritytech/parity-common/issues/105
+// https://github.com/tetcoin/tetsy-common/issues/105
 #[test]
 fn test_nested_list_roundtrip() {
 	#[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -720,7 +720,7 @@ fn test_nested_list_roundtrip() {
 
 // test described in
 //
-// https://github.com/paritytech/parity-ethereum/pull/9663
+// https://github.com/tetcoin/tetsy-vapory/pull/9663
 #[test]
 fn test_list_at() {
 	let raw = hex!("f83e82022bd79020010db83c4d001500000000abcdef12820cfa8215a8d79020010db885a308d313198a2e037073488208ae82823a8443b9a355c5010203040531b9019afde696e582a78fa8d95ea13ce3297d4afb8ba6433e4154caa5ac6431af1b80ba76023fa4090c408f6b4bc3701562c031041d4702971d102c9ab7fa5eed4cd6bab8f7af956f7d565ee1917084a95398b6a21eac920fe3dd1345ec0a7ef39367ee69ddf092cbfe5b93e5e568ebc491983c09c76d922dc3");

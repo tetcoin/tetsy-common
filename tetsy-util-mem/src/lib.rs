@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Crate for parity memory management related utilities.
+//! Crate for tetsy memory management related utilities.
 //! It includes global allocator choice, heap measurement and
 //! memory erasure.
 
@@ -57,16 +57,16 @@ pub mod sizeof;
 #[macro_use]
 mod malloc_size;
 
-#[cfg(feature = "ethereum-impls")]
-pub mod ethereum_impls;
+#[cfg(feature = "vapory-impls")]
+pub mod vapory_impls;
 
-#[cfg(feature = "primitive-types")]
+#[cfg(feature = "tetsy-primitive-types")]
 pub mod primitives_impls;
 
 pub use allocators::MallocSizeOfExt;
 pub use malloc_size::{MallocShallowSizeOf, MallocSizeOf, MallocSizeOfOps};
 
-pub use parity_util_mem_derive::*;
+pub use tetsy_util_mem_derive::*;
 
 /// Heap size of structure.
 ///

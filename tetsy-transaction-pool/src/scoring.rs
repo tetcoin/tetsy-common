@@ -66,7 +66,7 @@ pub enum Change<T = ()> {
 /// - `choose` may be called even if `compare` returns `Ordering::Equal`
 /// - `Score`s and `compare` should align with `Ready` implementation.
 ///
-/// Example: Natural ordering of Ethereum transactions.
+/// Example: Natural ordering of Vapory transactions.
 /// - `compare`: compares transaction `nonce` ()
 /// - `choose`: compares transactions `gasPrice` (decides if old transaction should be replaced)
 /// - `update_scores`: score defined as `gasPrice` if `n==0` and `max(scores[n-1], gasPrice)` if `n>0`

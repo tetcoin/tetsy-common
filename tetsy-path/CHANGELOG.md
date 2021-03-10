@@ -7,4 +7,4 @@ The format is based on [Keep a Changelog].
 ## [Unreleased]
 
 ## [0.1.3] - 2020-03-16
-- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/paritytech/parity-common/pull/342)
+- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/tetcoin/tetsy-common/pull/342)

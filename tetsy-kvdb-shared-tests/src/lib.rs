@@ -6,9 +6,9 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Shared tests for kvdb functionality, to be executed against actual implementations.
+//! Shared tests for tetsy_kvdb functionality, to be executed against actual implementations.
 
-use kvdb::{IoStatsKind, KeyValueDB};
+use tetsy_kvdb::{IoStatsKind, KeyValueDB};
 use std::io;
 
 /// A test for `KeyValueDB::get`.

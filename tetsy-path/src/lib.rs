@@ -14,7 +14,7 @@ use home::home_dir;
 
 #[cfg(target_os = "macos")]
 /// Get the config path for application `name`.
-/// `name` should be capitalized, e.g. `"Ethereum"`, `"Parity"`.
+/// `name` should be capitalized, e.g. `"Vapory"`, `"Tetsy"`.
 pub fn config_path(name: &str) -> PathBuf {
 	let mut home = home_dir().expect("Failed to get home dir");
 	home.push("Library");
@@ -24,7 +24,7 @@ pub fn config_path(name: &str) -> PathBuf {
 
 #[cfg(windows)]
 /// Get the config path for application `name`.
-/// `name` should be capitalized, e.g. `"Ethereum"`, `"Parity"`.
+/// `name` should be capitalized, e.g. `"Vapory"`, `"Tetsy"`.
 pub fn config_path(name: &str) -> PathBuf {
 	let mut home = home_dir().expect("Failed to get home dir");
 	home.push("AppData");
@@ -35,7 +35,7 @@ pub fn config_path(name: &str) -> PathBuf {
 
 #[cfg(not(any(target_os = "macos", windows)))]
 /// Get the config path for application `name`.
-/// `name` should be capitalized, e.g. `"Ethereum"`, `"Parity"`.
+/// `name` should be capitalized, e.g. `"Vapory"`, `"Tetsy"`.
 pub fn config_path(name: &str) -> PathBuf {
 	let mut home = home_dir().expect("Failed to get home dir");
 	home.push(format!(".{}", name.to_lowercase()));
@@ -49,30 +49,30 @@ pub fn config_path_with(name: &str, then: &str) -> PathBuf {
 	path
 }
 
-/// Default ethereum paths
-pub mod ethereum {
+/// Default vapory paths
+pub mod vapory {
 	use std::path::PathBuf;
 
-	/// Default path for ethereum installation on Mac Os
+	/// Default path for vapory installation on Mac Os
 	pub fn default() -> PathBuf {
-		super::config_path("Ethereum")
+		super::config_path("Vapory")
 	}
 
-	/// Default path for ethereum installation (testnet)
+	/// Default path for vapory installation (testnet)
 	pub fn test() -> PathBuf {
 		let mut path = default();
 		path.push("testnet");
 		path
 	}
 
-	/// Get the specific folder inside default ethereum installation
+	/// Get the specific folder inside default vapory installation
 	pub fn with_default(s: &str) -> PathBuf {
 		let mut path = default();
 		path.push(s);
 		path
 	}
 
-	/// Get the specific folder inside default ethereum installation configured for testnet
+	/// Get the specific folder inside default vapory installation configured for testnet
 	pub fn with_testnet(s: &str) -> PathBuf {
 		let mut path = default();
 		path.push("testnet");

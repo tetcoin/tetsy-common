@@ -25,10 +25,10 @@ use std::time::{Duration, Instant};
 
 use alloc_counter::{count_alloc, AllocCounterSystem};
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use ethereum_types::H256;
+use vapory_types::H256;
 use rand::{distributions::Uniform, seq::SliceRandom, Rng};
 
-use kvdb_rocksdb::{Database, DatabaseConfig};
+use tetsy_kvdb_rocksdb::{Database, DatabaseConfig};
 
 #[global_allocator]
 static A: AllocCounterSystem = AllocCounterSystem;
@@ -72,7 +72,7 @@ fn populate(db: &Database) -> io::Result<Vec<H256>> {
 				println!("[populate] {} keys", i);
 			}
 		}
-		// In ethereum keys are mostly 32 bytes and payloads ~140bytes.
+		// In vapory keys are mostly 32 bytes and payloads ~140bytes.
 		batch.put(0, &key.as_bytes(), &n_random_bytes(140));
 	}
 	db.write(batch)?;

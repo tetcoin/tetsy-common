@@ -1,14 +1,14 @@
 [package]
-name = "parity-runtime"
+name = "tetsy-runtime"
 version = "0.1.2"
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 edition = "2018"
 
 description = "Tokio runtime wrapper"
 license = "GPL-3.0"
 readme = "README.md"
-homepage = "https://www.parity.io/"
-keywords = ["parity", "runtime", "tokio"]
+homepage = "https://core.tetcoin.org/"
+keywords = ["tetsy", "runtime", "tokio"]
 include = ["Cargo.toml", "src/**/*.rs", "README.md", "CHANGELOG.md"]
 
 [dependencies]

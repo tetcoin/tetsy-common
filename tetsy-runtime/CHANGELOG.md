@@ -8,8 +8,8 @@ The format is based on [Keep a Changelog].
 
 ## [0.1.2] - 2020-07-16
 ### Changed
-- Port runtime to tokio-compat. [#403](https://github.com/paritytech/parity-common/pull/403)
+- Port runtime to tokio-compat. [#403](https://github.com/tetcoin/tetsy-common/pull/403)
 
 ## [0.1.1] - 2020-02-11
 ### Changed
-- Moved to parity common repo, prepared for publishing. [#271](https://github.com/paritytech/parity-common/pull/271)
+- Moved to tetsy common repo, prepared for publishing. [#271](https://github.com/tetcoin/tetsy-common/pull/271)

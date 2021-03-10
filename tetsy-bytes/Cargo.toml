@@ -1,11 +1,15 @@
 [package]
-name = "parity-bytes"
-version = "0.1.2"
-authors = ["Parity Technologies <admin@parity.io>"]
-repository = "https://github.com/paritytech/parity-common"
-description = "byte utilities for Parity"
+name = "tetsy-bytes"
+version = "0.1.2-alpha"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "byte utilities for Tetsy"
 license = "MIT OR Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-bytes"
 
 [dependencies]
 

@@ -10,7 +10,7 @@ use std::collections::hash_map::DefaultHasher;
 use std::hash::Hasher;
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use plain_hasher::PlainHasher;
+use tetsy_plain_hasher::PlainHasher;
 
 fn bench_write_hasher(c: &mut Criterion) {
 	c.bench_function("write_plain_hasher", |b| {

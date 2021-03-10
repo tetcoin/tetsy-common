@@ -9,12 +9,12 @@
 #![cfg_attr(feature = "external_doc", feature(external_doc))]
 #![cfg_attr(feature = "external_doc", doc(include = "../README.md"))]
 
-pub use ethereum_types::{Address, H256, U256};
-use keccak_hash::keccak;
+pub use vapory_types::{Address, H256, U256};
+use tetsy_keccak_hash::keccak;
 use rlp::RlpStream;
 use std::ops::Deref;
 
-/// Represents an ethereum contract address
+/// Represents an vapory contract address
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Hash)]
 pub struct ContractAddress(Address);
 

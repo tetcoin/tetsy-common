@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-use ethereum_types::{H160, H256, U256, U512};
+use vapory_types::{H160, H256, U256, U512};
 use serde_json as ser;
 
 macro_rules! test {

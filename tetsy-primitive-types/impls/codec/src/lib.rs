@@ -6,14 +6,14 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Parity Codec serialization support for uint and fixed hash.
+//! Tetsy Codec serialization support for uint and fixed hash.
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
 #[doc(hidden)]
-pub use parity_scale_codec as codec;
+pub use tetsy_scale_codec as codec;
 
-/// Add Parity Codec serialization support to an integer created by `construct_uint!`.
+/// Add Tetsy Codec serialization support to an integer created by `construct_uint!`.
 #[macro_export]
 macro_rules! impl_uint_codec {
 	($name: ident, $len: expr) => {
@@ -35,7 +35,7 @@ macro_rules! impl_uint_codec {
 	};
 }
 
-/// Add Parity Codec serialization support to a fixed-sized hash type created by `construct_fixed_hash!`.
+/// Add Tetsy Codec serialization support to a fixed-sized hash type created by `construct_fixed_hash!`.
 #[macro_export]
 macro_rules! impl_fixed_hash_codec {
 	($name: ident, $len: expr) => {

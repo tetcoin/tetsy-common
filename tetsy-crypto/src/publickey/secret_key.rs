@@ -12,7 +12,7 @@ use std::fmt;
 use std::ops::Deref;
 use std::str::FromStr;
 
-use ethereum_types::H256;
+use vapory_types::H256;
 use secp256k1::constants::SECRET_KEY_SIZE as SECP256K1_SECRET_KEY_SIZE;
 use secp256k1::key;
 use zeroize::Zeroize;

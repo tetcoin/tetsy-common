@@ -1,19 +1,21 @@
 [package]
-name = "contract-address"
+name = "tetsy-contract-address"
 version = "0.5.0"
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "a utility crate to create a vapory contract address"
 license = "MIT OR Apache-2.0"
-homepage = "https://github.com/paritytech/parity-common"
-repository = "https://github.com/paritytech/parity-common"
-description = "A utility crate to create an ethereum contract address"
-documentation = "https://docs.rs/contract-address/"
 edition = "2018"
-readme = "README.md"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-contract-address"
+
 
 [dependencies]
-ethereum-types = { version = "0.10.0", path = "../ethereum-types" }
-rlp = { version = "0.5", path = "../rlp" }
-keccak-hash = { version = "0.6", path = "../keccak-hash", default-features = false }
+vapory-types = { version = "0.10.0", path = "../vapory-types" }
+tetsy-rlp = { version = "0.5", path = "../rlp" }
+tetsy-keccak-hash = { version = "0.6", path = "../tetsy-keccak-hash", default-features = false }
 
 [features]
 default = []

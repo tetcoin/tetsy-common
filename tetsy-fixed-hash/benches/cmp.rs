@@ -6,7 +6,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Benchmarks for fixed-hash cmp implementation.
+//! Benchmarks for tetsy-fixed-hash cmp implementation.
 
 use criterion::{black_box, Criterion, ParameterizedBenchmark};
 use criterion::{criterion_group, criterion_main};

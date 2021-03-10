@@ -7,7 +7,7 @@
 // except according to those terms.
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use keccak_hash::keccak;
+use tetsy_keccak_hash::keccak;
 
 criterion_group!(keccak_256, keccak_256_with_empty_input, keccak_256_with_typical_input, keccak_256_with_large_input,);
 criterion_main!(keccak_256);
@@ -32,12 +32,12 @@ pub fn keccak_256_with_typical_input(c: &mut Criterion) {
 	});
 	group.bench_function("inplace", |b| {
 		b.iter(|| {
-			keccak_hash::keccak256(black_box(&mut data[..]));
+			tetsy_keccak_hash::keccak256(black_box(&mut data[..]));
 		})
 	});
 	group.bench_function("inplace_range", |b| {
 		b.iter(|| {
-			keccak_hash::keccak256_range(black_box(&mut data[..]), 0..len);
+			tetsy_keccak_hash::keccak256_range(black_box(&mut data[..]), 0..len);
 		})
 	});
 

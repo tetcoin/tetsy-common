@@ -1,13 +1,13 @@
 # Contract address
 
-Provides a function to create an ethereum contract address.
+Provides a function to create a vapory contract address.
 
 ## Examples
 
-Create an ethereum address from sender and nonce.
+Create an vapory address from sender and nonce.
 
 ```rust
-use contract_address::{
+use tetsy_contract_address::{
 	Address, U256, ContractAddress
 };
 use std::str::FromStr;

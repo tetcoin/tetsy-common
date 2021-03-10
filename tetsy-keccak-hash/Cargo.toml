@@ -1,16 +1,19 @@
 [package]
-name = "keccak-hash"
+name = "tetsy-keccak-hash"
 version = "0.6.0"
-description = "`keccak-hash` is a set of utility functions to facilitate working with Keccak hashes (256/512 bits long)."
-authors = ["Parity Technologies <admin@parity.io>"]
-repository = "https://github.com/paritytech/parity-common"
-readme = "README.md"
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "`tetsy-keccak-hash` is a set of utility functions to facilitate working with keccak hashes (256/512 bits long)."
 license = "MIT OR Apache-2.0"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/tetsy-keccak-hash"
 
 [dependencies]
 tiny-keccak = { version = "2.0", features = ["keccak"] }
-primitive-types = { path = "../primitive-types", version = "0.8", default-features = false }
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.8", default-features = false }
 
 [dev-dependencies]
 tempfile = "3.1.0"

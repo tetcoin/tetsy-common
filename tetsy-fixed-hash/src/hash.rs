@@ -179,7 +179,7 @@ macro_rules! construct_fixed_hash {
 				self.as_bytes_mut().copy_from_slice(src);
 			}
 
-			/// Create a new fixed-hash from the given slice `src`.
+			/// Create a new tetsy-fixed-hash from the given slice `src`.
 			///
 			/// # Note
 			///

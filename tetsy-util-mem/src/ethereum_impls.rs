@@ -6,9 +6,9 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Implementation of `MallocSize` for common ethereum types: fixed hashes
+//! Implementation of `MallocSize` for common vapory types: fixed hashes
 //! and uints.
 
-use ethereum_types::{Bloom, H128, H264, H32, H520, H64, U64};
+use vapory_types::{Bloom, H128, H264, H32, H520, H64, U64};
 
 malloc_size_of_is_0!(U64, H32, H64, H128, H264, H520, Bloom);

@@ -1,25 +1,25 @@
 // Copyright 2020 Parity Technologies (UK) Ltd.
-// This file is part of Parity Ethereum.
+// This file is part of Tetsy Vapory.
 
-// Parity Ethereum is free software: you can redistribute it and/or modify
+// Tetsy Vapory is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 
-// Parity Ethereum is distributed in the hope that it will be useful,
+// Tetsy Vapory is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with Parity Ethereum.  If not, see <http://www.gnu.org/licenses/>.
+// along with Tetsy Vapory.  If not, see <http://www.gnu.org/licenses/>.
 
 // This program starts writing random data to the database with 100 (COLUMN_COUNT)
 // columns and never stops until interrupted.
 
-use ethereum_types::H256;
-use keccak_hash::keccak;
-use kvdb_rocksdb::{Database, DatabaseConfig};
+use vapory_types::H256;
+use tetsy_keccak_hash::keccak;
+use tetsy_kvdb_rocksdb::{Database, DatabaseConfig};
 use std::sync::{atomic::AtomicBool, atomic::Ordering as AtomicOrdering, Arc};
 use sysinfo::{get_current_pid, ProcessExt, System, SystemExt};
 
@@ -141,7 +141,7 @@ fn main() {
 			println!("{}", timestamp);
 			println!("\tData written: {} keys - {} Mb", step + 1, ((step + 1) * 64 * 128) / 1024 / 1024);
 			println!("\tProcess memory used as seen by the OS: {} Mb", proc_memory_usage() / 1024);
-			println!("\tMemory used as reported by rocksdb: {} Mb\n", parity_util_mem::malloc_size(&db) / 1024 / 1024);
+			println!("\tMemory used as reported by rocksdb: {} Mb\n", tetsy_util_mem::malloc_size(&db) / 1024 / 1024);
 		}
 
 		step += 1;

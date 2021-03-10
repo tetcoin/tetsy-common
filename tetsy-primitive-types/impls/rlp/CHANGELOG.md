@@ -6,4 +6,4 @@ The format is based on [Keep a Changelog].
 
 ## [Unreleased]
 ### Breaking
-- Updated `rlp` to 0.5. [#463](https://github.com/paritytech/parity-common/pull/463)
+- Updated `rlp` to 0.5. [#463](https://github.com/tetcoin/tetsy-common/pull/463)

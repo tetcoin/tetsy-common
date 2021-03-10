@@ -11,7 +11,7 @@ use std::collections::HashMap;
 
 use super::Transaction;
 use crate::{pool, scoring, Readiness, Ready, ReplaceTransaction, Scoring, ShouldReplace};
-use ethereum_types::{H160 as Sender, U256};
+use vapory_types::{H160 as Sender, U256};
 
 #[derive(Debug, Default)]
 pub struct DummyScoring {

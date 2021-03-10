@@ -16,13 +16,13 @@
 mod error;
 mod indexed_db;
 
-use kvdb::{DBTransaction, DBValue};
-use kvdb_memorydb::{self as in_memory, InMemory};
+use tetsy_kvdb::{DBTransaction, DBValue};
+use tetsy_kvdb_memorydb::{self as in_memory, InMemory};
 use send_wrapper::SendWrapper;
 use std::io;
 
 pub use error::Error;
-pub use kvdb::KeyValueDB;
+pub use tetsy_kvdb::KeyValueDB;
 
 use futures::prelude::*;
 
@@ -38,7 +38,7 @@ pub struct Database {
 }
 
 // TODO: implement when web-based implementation need memory stats
-parity_util_mem::malloc_size_of_is_0!(Database);
+tetsy_util_mem::malloc_size_of_is_0!(Database);
 
 impl Database {
 	/// Opens the database with the given name,
@@ -52,7 +52,7 @@ impl Database {
 		// then bump the version (+ 1 for the default column).
 		// In order to bump the version, we close the database
 		// and reopen it with a higher version than it was opened with previously.
-		// cf. https://github.com/paritytech/parity-common/pull/202#discussion_r321221751
+		// cf. https://github.com/tetcoin/tetsy-common/pull/202#discussion_r321221751
 		let db = if columns + 1 > db.columns {
 			let next_version = db.version + 1;
 			drop(db);

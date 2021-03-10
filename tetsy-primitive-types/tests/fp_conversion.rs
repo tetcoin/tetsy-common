@@ -8,7 +8,7 @@
 
 //! Testing to and from f64 lossy for U256 primitive type.
 
-use primitive_types::U256;
+use tetsy_primitive_types::U256;
 
 #[test]
 #[allow(clippy::float_cmp)]

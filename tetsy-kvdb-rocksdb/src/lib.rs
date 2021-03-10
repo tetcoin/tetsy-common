@@ -11,7 +11,7 @@ mod stats;
 
 use std::{cmp, collections::HashMap, convert::identity, error, fs, io, mem, path::Path, result};
 
-use parity_util_mem::MallocSizeOf;
+use tetsy_util_mem::MallocSizeOf;
 use parking_lot::RwLock;
 use rocksdb::{
 	BlockBasedOptions, ColumnFamily, ColumnFamilyDescriptor, Error, Options, ReadOptions, WriteBatch, WriteOptions, DB,
@@ -19,7 +19,7 @@ use rocksdb::{
 
 use crate::iter::KeyValuePair;
 use fs_swap::{swap, swap_nonatomic};
-use kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
+use tetsy_kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
 use log::{debug, warn};
 
 #[cfg(target_os = "linux")]
@@ -237,7 +237,7 @@ struct DBAndColumns {
 }
 
 impl MallocSizeOf for DBAndColumns {
-	fn size_of(&self, ops: &mut parity_util_mem::MallocSizeOfOps) -> usize {
+	fn size_of(&self, ops: &mut tetsy_util_mem::MallocSizeOfOps) -> usize {
 		let mut total = self.column_names.size_of(ops)
 			// we have at least one column always, so we can call property on it
 			+ self.db
@@ -506,7 +506,7 @@ impl Database {
 							batch.delete_cf(cf, &key);
 						}
 						DBOp::DeletePrefix { col, prefix } => {
-							let end_prefix = kvdb::end_prefix(&prefix[..]);
+							let end_prefix = tetsy_kvdb::end_prefix(&prefix[..]);
 							let no_end = end_prefix.is_none();
 							let end_range = end_prefix.unwrap_or_else(|| vec![u8::max_value(); 16]);
 							batch.delete_range_cf(cf, &prefix[..], &end_range[..]);
@@ -515,7 +515,7 @@ impl Database {
 
 								let prefix = if prefix.len() > end_range.len() { &prefix[..] } else { &end_range[..] };
 								// We call `iter_with_prefix` directly on `cfs` to avoid taking a lock twice
-								// See https://github.com/paritytech/parity-common/pull/396.
+								// See https://github.com/tetcoin/tetsy-common/pull/396.
 								let read_opts = generate_read_options();
 								for (key, _) in cfs.iter_with_prefix(col, prefix, read_opts) {
 									batch.delete_cf(cf, &key[..]);
@@ -586,7 +586,7 @@ impl Database {
 		let optional = if read_lock.is_some() {
 			let mut read_opts = generate_read_options();
 			// rocksdb doesn't work with an empty upper bound
-			if let Some(end_prefix) = kvdb::end_prefix(prefix) {
+			if let Some(end_prefix) = tetsy_kvdb::end_prefix(prefix) {
 				read_opts.set_iterate_upper_bound(end_prefix);
 			}
 			let guarded = iter::ReadGuardedIterator::new_with_prefix(read_lock, col, prefix, read_opts);
@@ -755,7 +755,7 @@ impl KeyValueDB for Database {
 		Database::restore(self, new_db)
 	}
 
-	fn io_stats(&self, kind: kvdb::IoStatsKind) -> kvdb::IoStats {
+	fn io_stats(&self, kind: tetsy_kvdb::IoStatsKind) -> tetsy_kvdb::IoStats {
 		let rocksdb_stats = self.get_statistics();
 		let cache_hit_count = rocksdb_stats.get("block.cache.hit").map(|s| s.count).unwrap_or(0u64);
 		let overall_stats = self.stats.overall();
@@ -764,11 +764,11 @@ impl KeyValueDB for Database {
 		self.stats.tally_cache_hit_count(cache_hit_count - old_cache_hit_count);
 
 		let taken_stats = match kind {
-			kvdb::IoStatsKind::Overall => self.stats.overall(),
-			kvdb::IoStatsKind::SincePrevious => self.stats.since_previous(),
+			tetsy_kvdb::IoStatsKind::Overall => self.stats.overall(),
+			tetsy_kvdb::IoStatsKind::SincePrevious => self.stats.since_previous(),
 		};
 
-		let mut stats = kvdb::IoStats::empty();
+		let mut stats = tetsy_kvdb::IoStats::empty();
 
 		stats.reads = taken_stats.raw.reads;
 		stats.writes = taken_stats.raw.writes;
@@ -786,7 +786,7 @@ impl KeyValueDB for Database {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use kvdb_shared_tests as st;
+	use tetsy_kvdb_shared_tests as st;
 	use std::io::{self, Read};
 	use tempfile::Builder as TempfileBuilder;
 

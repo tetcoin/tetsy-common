@@ -1,7 +1,7 @@
 [package]
 name = "vapbloom"
 version = "0.10.0"
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "vapory bloom filter"
 license = "MIT OR Apache-2.0"
 edition = "2018"
@@ -14,10 +14,10 @@ documentation = "https://docs.rs/vapbloom"
 [dependencies]
 tiny-keccak = { version = "2.0", features = ["keccak"] }
 crunchy = { version = "0.2.2", default-features = false, features = ["limit_256"] }
-fixed-hash = { path = "../fixed-hash", version = "0.7", default-features = false }
-impl-serde = { path = "../primitive-types/impls/serde", version = "0.3", default-features = false, optional = true }
-impl-rlp = { path = "../primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
-impl-codec = { version = "0.4.1", path = "../primitive-types/impls/codec", default-features = false, optional = true }
+tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7.0-alpha", default-features = false }
+tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3", default-features = false, optional = true }
+tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.4.1", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
 
 [dev-dependencies]
 criterion = "0.3.0"
@@ -26,12 +26,12 @@ hex-literal = "0.3.1"
 
 [features]
 default = ["std", "rlp", "serialize", "rustc-hex"]
-std = ["fixed-hash/std", "crunchy/std"]
-serialize = ["std", "impl-serde"]
-rustc-hex = ["fixed-hash/rustc-hex"]
-arbitrary = ["fixed-hash/arbitrary"]
-rlp = ["impl-rlp"]
-codec = ["impl-codec"]
+std = ["tetsy-fixed-hash/std", "crunchy/std"]
+serialize = ["std", "tetsy-impl-serde"]
+rustc-hex = ["tetsy-fixed-hash/rustc-hex"]
+arbitrary = ["tetsy-fixed-hash/arbitrary"]
+rlp = ["tetsy-impl-rlp"]
+codec = ["tetsy-impl-codec"]
 
 [[bench]]
 name = "bloom"

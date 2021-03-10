@@ -6,16 +6,16 @@ The format is based on [Keep a Changelog].
 
 ## [Unreleased]
 ### Breaking
-- Updated `primitive-types` to 0.8. [#463](https://github.com/paritytech/parity-common/pull/463)
+- Updated `tetsy-primitive-types` to 0.8. [#463](https://github.com/tetcoin/tetsy-common/pull/463)
 
 ## [0.5.1] - 2020-04-10
-- Added `keccak256_range` and `keccak512_range` functions. [#370](https://github.com/paritytech/parity-common/pull/370)
+- Added `keccak256_range` and `keccak512_range` functions. [#370](https://github.com/tetcoin/tetsy-common/pull/370)
 
 ## [0.5.0] - 2020-03-16
-- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/paritytech/parity-common/pull/342)
-- Updated dependencies. [#361](https://github.com/paritytech/parity-common/pull/361)
-- Updated tiny-keccak. [#260](https://github.com/paritytech/parity-common/pull/260)
+- License changed from GPL3 to dual MIT/Apache2. [#342](https://github.com/tetcoin/tetsy-common/pull/342)
+- Updated dependencies. [#361](https://github.com/tetcoin/tetsy-common/pull/361)
+- Updated tiny-keccak. [#260](https://github.com/tetcoin/tetsy-common/pull/260)
 
 ## [0.4.1] - 2019-10-24
 ### Dependencies
-- Updated dependencies. [#239](https://github.com/paritytech/parity-common/pull/239)
+- Updated dependencies. [#239](https://github.com/tetcoin/tetsy-common/pull/239)

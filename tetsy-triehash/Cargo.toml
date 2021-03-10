@@ -1,20 +1,20 @@
 [package]
 name = "triehash"
 version = "0.8.3"
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "In-memory patricia trie operations"
-repository = "https://github.com/paritytech/parity-common"
+repository = "https://github.com/tetcoin/tetsy-common"
 license = "MIT OR Apache-2.0"
 edition = "2018"
 
 [dependencies]
 hash-db = { version = "0.15.2", default-features = false }
-rlp = { version = "0.5", path = "../rlp", default-features = false }
+tetsy-rlp = { version = "0.5", path = "../rlp", default-features = false }
 
 [dev-dependencies]
 criterion = "0.3.0"
-keccak-hasher = "0.15.2"
-ethereum-types = { version = "0.10.0", path = "../ethereum-types" }
+tetsy-keccak-hasher = "0.15.2"
+vapory-types = { version = "0.10.0", path = "../vapory-types" }
 tiny-keccak = { version = "2.0", features = ["keccak"] }
 trie-standardmap = "0.15.2"
 hex-literal = "0.3.1"

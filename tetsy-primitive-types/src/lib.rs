@@ -6,11 +6,11 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Primitive types shared by Substrate and Parity Ethereum.
+//! Primitive types shared by Substrate and Parity Vapory.
 //!
 //! Those are uint types `U128`, `U256` and `U512`, and fixed hash types `H160`,
-//! `H256` and `H512`, with optional serde serialization, parity-scale-codec and
-//! rlp encoding.
+//! `H256` and `H512`, with optional serde serialization, tetsy-scale-codec and
+//! tetsy-rlpencoding.
 
 #![cfg_attr(not(feature = "std"), no_std)]
 
@@ -68,7 +68,7 @@ construct_fixed_hash! {
 	pub struct H512(64);
 }
 
-#[cfg(feature = "num-traits")]
+#[cfg(feature = "tetsy-num-traits")]
 mod num_traits {
 	use super::*;
 	use impl_num_traits::impl_uint_num_traits;
@@ -78,10 +78,10 @@ mod num_traits {
 	impl_uint_num_traits!(U512, 8);
 }
 
-#[cfg(feature = "impl-serde")]
+#[cfg(feature = "tetsy-impl-serde")]
 mod serde {
 	use super::*;
-	use impl_serde::{impl_fixed_hash_serde, impl_uint_serde};
+	use tetsy_impl_serde::{impl_fixed_hash_serde, impl_uint_serde};
 
 	impl_uint_serde!(U128, 2);
 	impl_uint_serde!(U256, 4);
@@ -93,7 +93,7 @@ mod serde {
 	impl_fixed_hash_serde!(H512, 64);
 }
 
-#[cfg(feature = "impl-codec")]
+#[cfg(feature = "tetsy-impl-codec")]
 mod codec {
 	use super::*;
 	use impl_codec::{impl_fixed_hash_codec, impl_uint_codec};
@@ -108,7 +108,7 @@ mod codec {
 	impl_fixed_hash_codec!(H512, 64);
 }
 
-#[cfg(feature = "impl-rlp")]
+#[cfg(feature = "tetsy-impl-rlp")]
 mod rlp {
 	use super::*;
 	use impl_rlp::{impl_fixed_hash_rlp, impl_uint_rlp};

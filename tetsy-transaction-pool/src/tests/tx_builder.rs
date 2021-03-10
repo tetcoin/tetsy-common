@@ -7,7 +7,7 @@
 // except according to those terms.
 
 use super::{Address, Transaction, H256, U256};
-use ethereum_types::BigEndianHash;
+use vapory_types::BigEndianHash;
 
 #[derive(Debug, Default, Clone)]
 pub struct TransactionBuilder {

@@ -13,7 +13,7 @@ use impl_codec::impl_fixed_hash_codec;
 #[cfg(feature = "rlp")]
 use impl_rlp::impl_fixed_hash_rlp;
 #[cfg(feature = "serialize")]
-use impl_serde::impl_fixed_hash_serde;
+use tetsy_impl_serde::impl_fixed_hash_serde;
 
 pub trait BigEndianHash {
 	type Uint;
@@ -46,8 +46,8 @@ impl_fixed_hash_serde!(H128, 16);
 #[cfg(feature = "codec")]
 impl_fixed_hash_codec!(H128, 16);
 
-pub use primitive_types::H160;
-pub use primitive_types::H256;
+pub use tetsy_primitive_types::H160;
+pub use tetsy_primitive_types::H256;
 
 construct_fixed_hash! { pub struct H264(33); }
 #[cfg(feature = "rlp")]
@@ -57,7 +57,7 @@ impl_fixed_hash_serde!(H264, 33);
 #[cfg(feature = "codec")]
 impl_fixed_hash_codec!(H264, 33);
 
-pub use primitive_types::H512;
+pub use tetsy_primitive_types::H512;
 
 construct_fixed_hash! { pub struct H520(65); }
 #[cfg(feature = "rlp")]
