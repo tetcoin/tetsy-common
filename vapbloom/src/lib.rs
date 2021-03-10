@@ -53,11 +53,11 @@
 use core::{mem, ops};
 
 use crunchy::unroll;
-use fixed_hash::*;
+use tetsy_fixed_hash::*;
 #[cfg(feature = "codec")]
-use impl_codec::impl_fixed_hash_codec;
+use tetsy_impl_codec::impl_fixed_hash_codec;
 #[cfg(feature = "rlp")]
-use impl_rlp::impl_fixed_hash_rlp;
+use tetsy_impl_rlp::impl_fixed_hash_rlp;
 #[cfg(feature = "serialize")]
 use tetsy_impl_serde::impl_fixed_hash_serde;
 use tiny_keccak::{Hasher, Keccak};

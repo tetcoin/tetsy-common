@@ -7,7 +7,7 @@ Provides macros to construct custom fixed-size hash types.
 Simple 256 bit (32 bytes) hash type.
 
 ```rust
-use fixed_hash::construct_fixed_hash;
+use tetsy_fixed_hash::construct_fixed_hash;
 
 construct_fixed_hash! {
     /// My 256 bit hash type.

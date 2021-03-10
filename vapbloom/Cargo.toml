@@ -17,7 +17,7 @@ crunchy = { version = "0.2.2", default-features = false, features = ["limit_256"
 tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7.0-alpha", default-features = false }
 tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3", default-features = false, optional = true }
 tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
-tetsy-impl-codec = { version = "0.4.1", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.4.0", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
 
 [dev-dependencies]
 criterion = "0.3.0"

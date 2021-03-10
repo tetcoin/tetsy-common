@@ -18,7 +18,7 @@ uint-crate = { path = "../uint-crate", package = "uint-crate", version = "0.9.0-
 tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.8", features = ["byteorder", "rustc-hex"], default-features = false }
 tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3.0", default-features = false, optional = true }
 tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
-tetsy-impl-codec = { version = "0.4.1", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.4.0", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
 
 [dev-dependencies]
 serde_json = "1.0.41"

@@ -7,9 +7,9 @@
 // except according to those terms.
 
 #[cfg(feature = "codec")]
-use impl_codec::impl_uint_codec;
+use tetsy_impl_codec::impl_uint_codec;
 #[cfg(feature = "rlp")]
-use impl_rlp::impl_uint_rlp;
+use tetsy_impl_rlp::impl_uint_rlp;
 #[cfg(feature = "serialize")]
 use tetsy_impl_serde::impl_uint_serde;
 use uint_crate::*;

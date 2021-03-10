@@ -11,7 +11,7 @@ use core::{cmp, fmt};
 use bytes::{Bytes, BytesMut};
 use hex_literal::hex;
 use tetsy_primitive_types::{H160, U256};
-use rlp::{Decodable, DecoderError, Encodable, Rlp, RlpStream};
+use tetsy_rlp::{Decodable, DecoderError, Encodable, Rlp, RlpStream};
 
 #[test]
 fn test_rlp_display() {
@@ -131,7 +131,7 @@ where
 	T: Encodable,
 {
 	for t in &tests {
-		let res = rlp::encode(&t.0);
+		let res = tetsy_rlp::encode(&t.0);
 		assert_eq!(&res[..], &t.1[..]);
 	}
 }
@@ -145,7 +145,7 @@ where
 	T: Encodable,
 {
 	for t in &tests {
-		let res = rlp::encode_list(&t.0);
+		let res = tetsy_rlp::encode_list(&t.0);
 		assert_eq!(&res[..], &t.1[..]);
 	}
 }
@@ -354,7 +354,7 @@ where
 	T: Decodable + fmt::Debug + cmp::Eq,
 {
 	for t in &tests {
-		let res: Result<T, DecoderError> = rlp::decode(&t.1);
+		let res: Result<T, DecoderError> = tetsy_rlp::decode(&t.1);
 		assert!(res.is_ok());
 		let res = res.unwrap();
 		assert_eq!(&res, &t.0);
@@ -366,7 +366,7 @@ where
 	T: Decodable + fmt::Debug + cmp::Eq,
 {
 	for t in &tests {
-		let res: Vec<T> = rlp::decode_list(&t.1);
+		let res: Vec<T> = tetsy_rlp::decode_list(&t.1);
 		assert_eq!(res, t.0);
 	}
 }
@@ -705,15 +705,15 @@ fn test_nested_list_roundtrip() {
 	let items = (0..4).map(|i| Inner(i, i + 1)).collect();
 	let nest = Nest(items);
 
-	let encoded = rlp::encode(&nest);
-	let decoded = rlp::decode(&encoded).unwrap();
+	let encoded = tetsy_rlp::encode(&nest);
+	let decoded = tetsy_rlp::decode(&encoded).unwrap();
 
 	assert_eq!(nest, decoded);
 
 	let nest2 = Nest(vec![nest.clone(), nest]);
 
-	let encoded = rlp::encode(&nest2);
-	let decoded = rlp::decode(&encoded).unwrap();
+	let encoded = tetsy_rlp::encode(&nest2);
+	let decoded = tetsy_rlp::decode(&encoded).unwrap();
 
 	assert_eq!(nest2, decoded);
 }

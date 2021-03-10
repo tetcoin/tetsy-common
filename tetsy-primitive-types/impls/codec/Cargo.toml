@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-impl-codec"
-version = "0.4.2"
+version = "0.4.0"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "Parity Codec serialization support for uint and fixed hash."
 license = "MIT OR Apache-2.0"

@@ -11,7 +11,7 @@
 use criterion::{black_box, Criterion, ParameterizedBenchmark};
 use criterion::{criterion_group, criterion_main};
 
-use fixed_hash::construct_fixed_hash;
+use tetsy_fixed_hash::construct_fixed_hash;
 
 construct_fixed_hash! { pub struct H256(32); }
 

@@ -18,10 +18,10 @@
 mod fp_conversion;
 
 use core::convert::TryFrom;
-use fixed_hash::{construct_fixed_hash, impl_fixed_hash_conversions};
-#[cfg(feature = "scale-info")]
-use scale_info::TypeInfo;
-use uint::{construct_uint, uint_full_mul_reg};
+use tetsy_fixed_hash::{construct_fixed_hash, impl_fixed_hash_conversions};
+#[cfg(feature = "tetsy-scale-info")]
+use tetsy_scale_info::TypeInfo;
+use uint_crate::{construct_uint, uint_full_mul_reg};
 
 /// Error type for conversion.
 #[derive(Debug, PartialEq, Eq)]
@@ -32,39 +32,39 @@ pub enum Error {
 
 construct_uint! {
 	/// 128-bit unsigned integer.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct U128(2);
 }
 construct_uint! {
 	/// 256-bit unsigned integer.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct U256(4);
 }
 construct_uint! {
 	/// 512-bits unsigned integer.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct U512(8);
 }
 
 construct_fixed_hash! {
 	/// Fixed-size uninterpreted hash type with 16 bytes (128 bits) size.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct H128(16);
 }
 
 construct_fixed_hash! {
 	/// Fixed-size uninterpreted hash type with 20 bytes (160 bits) size.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct H160(20);
 }
 construct_fixed_hash! {
 	/// Fixed-size uninterpreted hash type with 32 bytes (256 bits) size.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct H256(32);
 }
 construct_fixed_hash! {
 	/// Fixed-size uninterpreted hash type with 64 bytes (512 bits) size.
-	#[cfg_attr(feature = "scale-info", derive(TypeInfo))]
+	#[cfg_attr(feature = "tetsy-scale-info", derive(TypeInfo))]
 	pub struct H512(64);
 }
 
@@ -96,7 +96,7 @@ mod serde {
 #[cfg(feature = "tetsy-impl-codec")]
 mod codec {
 	use super::*;
-	use impl_codec::{impl_fixed_hash_codec, impl_uint_codec};
+	use tetsy_impl_codec::{impl_fixed_hash_codec, impl_uint_codec};
 
 	impl_uint_codec!(U128, 2);
 	impl_uint_codec!(U256, 4);
@@ -111,7 +111,7 @@ mod codec {
 #[cfg(feature = "tetsy-impl-rlp")]
 mod rlp {
 	use super::*;
-	use impl_rlp::{impl_fixed_hash_rlp, impl_uint_rlp};
+	use tetsy_impl_rlp::{impl_fixed_hash_rlp, impl_uint_rlp};
 
 	impl_uint_rlp!(U128, 2);
 	impl_uint_rlp!(U256, 4);

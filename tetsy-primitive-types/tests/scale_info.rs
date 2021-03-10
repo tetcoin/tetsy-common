@@ -6,10 +6,10 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-//! Tests for scale-info feature of tetsy-primitive-types.
+//! Tests for tetsy-scale-info feature of tetsy-primitive-types.
 
 use tetsy_primitive_types::{H256, U256};
-use scale_info::{build::Fields, Path, Type, TypeInfo};
+use tetsy_scale_info::{build::Fields, Path, Type, TypeInfo};
 
 #[test]
 fn u256_scale_info() {

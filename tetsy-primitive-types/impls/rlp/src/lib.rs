@@ -11,7 +11,7 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 #[doc(hidden)]
-pub use rlp;
+pub use tetsy_rlp as rlp;
 
 #[doc(hidden)]
 pub use core as core_;

@@ -43,7 +43,7 @@ script:
     fi
   - cd vapbloom/ && cargo test --no-default-features --features="rustc-hex" && cargo check --benches && cd ..
   - cd tetsy-fixed-hash/ && cargo test --all-features && cargo test --no-default-features --features="byteorder,rustc-hex" && cd ..
-  - cd uint/ && cargo test --all-features && cargo test --no-default-features && cd ..
+  - cd uint-crate/ && cargo test --all-features && cargo test --no-default-features && cd ..
   - cd tetsy-keccak-hash/ && cargo test --no-default-features && cd ..
   - cd tetsy-plain-hasher/ && cargo test --no-default-features && cargo check --benches && cd ..
   - cd tetsy-bytes/ && cargo test --no-default-features && cd ..

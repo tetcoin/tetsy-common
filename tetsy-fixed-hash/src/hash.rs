@@ -13,7 +13,7 @@
 /// Create a public unformatted hash type with 32 bytes size.
 ///
 /// ```
-/// use fixed_hash::construct_fixed_hash;
+/// use tetsy_fixed_hash::construct_fixed_hash;
 ///
 /// construct_fixed_hash!{ pub struct H256(32); }
 /// assert_eq!(std::mem::size_of::<H256>(), 32);
@@ -22,7 +22,7 @@
 /// With additional attributes and doc comments.
 ///
 /// ```
-/// use fixed_hash::construct_fixed_hash;
+/// use tetsy_fixed_hash::construct_fixed_hash;
 /// construct_fixed_hash!{
 /// 	/// My unformatted 160 bytes sized hash type.
 /// 	#[cfg_attr(feature = "serialize", derive(Serialize, Deserialize))]
@@ -34,7 +34,7 @@
 /// The visibility modifier is optional and you can create a private hash type.
 ///
 /// ```
-/// use fixed_hash::construct_fixed_hash;
+/// use tetsy_fixed_hash::construct_fixed_hash;
 /// construct_fixed_hash!{ struct H512(64); }
 /// assert_eq!(std::mem::size_of::<H512>(), 64);
 /// ```
@@ -738,7 +738,7 @@ macro_rules! impl_ops_for_hash {
 /// # Example
 ///
 /// ```
-/// use fixed_hash::{construct_fixed_hash, impl_fixed_hash_conversions};
+/// use tetsy_fixed_hash::{construct_fixed_hash, impl_fixed_hash_conversions};
 /// construct_fixed_hash!{ struct H160(20); }
 /// construct_fixed_hash!{ struct H256(32); }
 /// impl_fixed_hash_conversions!(H256, H160);

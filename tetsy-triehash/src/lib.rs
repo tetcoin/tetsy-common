@@ -30,7 +30,7 @@ use core::cmp;
 use core::iter::once;
 use rstd::*;
 
-use hash_db::Hasher;
+use tetsy_hash_db::Hasher;
 use tetsy_rlp::RlpStream;
 
 fn shared_prefix_len<T: Eq>(first: &[T], second: &[T]) -> usize {
@@ -54,7 +54,7 @@ where
 	I: IntoIterator,
 	I::Item: AsRef<[u8]>,
 	H: Hasher,
-	<H as hash_db::Hasher>::Out: cmp::Ord,
+	<H as tetsy_hash_db::Hasher>::Out: cmp::Ord,
 {
 	trie_root::<H, _, _, _>(input.into_iter().enumerate().map(|(i, v)| (tetsy_rlp::encode(&i), v)))
 }
@@ -82,7 +82,7 @@ where
 	A: AsRef<[u8]> + Ord,
 	B: AsRef<[u8]>,
 	H: Hasher,
-	<H as hash_db::Hasher>::Out: cmp::Ord,
+	<H as tetsy_hash_db::Hasher>::Out: cmp::Ord,
 {
 	// first put elements into btree to sort them and to remove duplicates
 	let input = input.into_iter().collect::<BTreeMap<_, _>>();
@@ -102,7 +102,7 @@ where
 	let input = input.into_iter().zip(lens.windows(2)).map(|((_, v), w)| (&nibbles[w[0]..w[1]], v)).collect::<Vec<_>>();
 
 	let mut stream = RlpStream::new();
-	hash256tetsy_rlp::<H, _, _>(&input, 0, &mut stream);
+	hash256rlp::<H, _, _>(&input, 0, &mut stream);
 	H::hash(&stream.out())
 }
 
@@ -129,7 +129,7 @@ where
 	A: AsRef<[u8]>,
 	B: AsRef<[u8]>,
 	H: Hasher,
-	<H as hash_db::Hasher>::Out: cmp::Ord,
+	<H as tetsy_hash_db::Hasher>::Out: cmp::Ord,
 {
 	trie_root::<H, _, _, _>(input.into_iter().map(|(k, v)| (H::hash(k.as_ref()), v)))
 }

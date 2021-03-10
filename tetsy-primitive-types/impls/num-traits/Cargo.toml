@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-impl-num-traits"
-version = "0.0.10"
+version = "0.1.0"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "tetsy num-traits implementation for uint."
 license = "MIT OR Apache-2.0"

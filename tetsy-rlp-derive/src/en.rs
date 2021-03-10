@@ -22,8 +22,8 @@ pub fn impl_encodable(ast: &syn::DeriveInput) -> TokenStream {
 	let stmts_len = stmts.len();
 	let stmts_len = quote! { #stmts_len };
 	let impl_block = quote! {
-		impl rlp::Encodable for #name {
-			fn rlp_append(&self, stream: &mut rlp::RlpStream) {
+		impl tetsy_rlp::Encodable for #name {
+			fn rlp_append(&self, stream: &mut tetsy_rlp::RlpStream) {
 				stream.begin_list(#stmts_len);
 				#(#stmts)*
 			}
@@ -32,7 +32,7 @@ pub fn impl_encodable(ast: &syn::DeriveInput) -> TokenStream {
 
 	quote! {
 		const _: () = {
-			extern crate rlp;
+			extern crate tetsy_rlp;
 			#impl_block
 		};
 	}
@@ -58,8 +58,8 @@ pub fn impl_encodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 	let name = &ast.ident;
 
 	let impl_block = quote! {
-		impl rlp::Encodable for #name {
-			fn rlp_append(&self, stream: &mut rlp::RlpStream) {
+		impl tetsy_rlp::Encodable for #name {
+			fn rlp_append(&self, stream: &mut tetsy_rlp::RlpStream) {
 				#stmt
 			}
 		}
@@ -67,7 +67,7 @@ pub fn impl_encodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 
 	quote! {
 		const _: () = {
-			extern crate rlp;
+			extern crate tetsy_rlp;
 			#impl_block
 		};
 	}
