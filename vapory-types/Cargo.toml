@@ -15,9 +15,9 @@ documentation = "https://docs.rs/vapory-types"
 vapbloom = { path = "../vapbloom", version = "0.10", default-features = false }
 tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7.0-alpha", default-features = false, features = ["byteorder", "rustc-hex"] }
 uint-crate = { path = "../uint-crate", package = "uint-crate", version = "0.9.0-alpha", default-features = false }
-tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.8", features = ["byteorder", "rustc-hex"], default-features = false }
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.8.0", features = ["byteorder", "rustc-hex"], default-features = false }
 tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3.0", default-features = false, optional = true }
-tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
+tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3.0-alpha", default-features = false, optional = true }
 tetsy-impl-codec = { version = "0.4.0", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
 
 [dev-dependencies]

@@ -13,7 +13,7 @@ documentation = "https://docs.rs/tetsy-triehash"
 
 [dependencies]
 tetsy-hash-db = { version = "0.15.2", default-features = false }
-tetsy-rlp = { version = "0.5", path = "../tetsy-rlp", default-features = false }
+tetsy-rlp = { version = "0.5.0-alpha", path = "../tetsy-rlp", default-features = false }
 
 [dev-dependencies]
 criterion = "0.3.0"

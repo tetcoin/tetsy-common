@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-path"
-version = "0.1.3"
+version = "0.1.3-alpha"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "path utilities"
 license = "MIT OR Apache-2.0"

@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-transaction-pool"
-version = "2.0.3"
+version = "2.0.3-alpha"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "generic transaction pool."
 license = "MIT OR Apache-2.0"
