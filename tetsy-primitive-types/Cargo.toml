@@ -22,7 +22,7 @@ scale-info = { version = "0.4", features = ["derive"], default-features = false,
 
 [features]
 default = ["std"]
-std = ["uint/std", "tetsy-fixed-hash/std", "tetsy-impl-codec/std"]
+std = ["uint-crate/std", "tetsy-fixed-hash/std", "tetsy-impl-codec/std"]
 byteorder = ["tetsy-fixed-hash/byteorder"]
 rustc-hex = ["tetsy-fixed-hash/rustc-hex"]
 serde = ["std", "tetsy-impl-serde", "tetsy-impl-serde/std"]
