@@ -14,9 +14,9 @@
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion, ParameterizedBenchmark};
 use serde_derive::{Deserialize, Serialize};
-// TODO(niklasad1): use `uint::construct_uint` when a new version of `uint` is released
+// TODO(niklasad1): use `uint_crate::construct_uint` when a new version of `uint_crate` is released
 use impl_serde::impl_uint_serde;
-use uint::*;
+use uint_crate::*;
 
 mod input;
 

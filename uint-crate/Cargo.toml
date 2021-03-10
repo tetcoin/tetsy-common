@@ -1,11 +1,11 @@
 [package]
 name = "uint-crate"
-version = "0.9.0"
+version = "0.8.9"
 authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
 description = "tetsy large fixed-size integer arithmetic"
 license = "MIT OR Apache-2.0"
 edition = "2018"
-keywords = [ "tetcoin", "tetcore" ]
+keywords = [ "tetcoin", "tetcore", "vapory" ]
 categories = [ "cryptography::cryptocurrencies" ]
 homepage = "https://tetcoin.org"
 repository = "https://github.com/tetcoin/tetsy-common"

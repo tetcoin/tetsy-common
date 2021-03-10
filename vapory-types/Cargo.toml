@@ -1,16 +1,20 @@
 [package]
-name = "ethereum-types"
+name = "vapory-types"
 version = "0.10.0"
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Parity Technologies <admin@parity.io>", "Tetcoin Developers <support@tetcoin.org>"]
+description = "vapory types"
 license = "MIT OR Apache-2.0"
-homepage = "https://github.com/paritytech/parity-common"
-description = "Ethereum types"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://core.tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/vapory-types"
 
 [dependencies]
 ethbloom = { path = "../ethbloom", version = "0.10", default-features = false }
 fixed-hash = { path = "../fixed-hash", version = "0.7", default-features = false, features = ["byteorder", "rustc-hex"] }
-uint-crate = { path = "../uint", package = "uint", version = "0.9", default-features = false }
+uint-crate = { path = "../uint-crate", package = "uint-crate", version = "0.8.9", default-features = false }
 primitive-types = { path = "../primitive-types", version = "0.8", features = ["byteorder", "rustc-hex"], default-features = false }
 impl-serde = { path = "../primitive-types/impls/serde", version = "0.3.0", default-features = false, optional = true }
 impl-rlp = { path = "../primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }

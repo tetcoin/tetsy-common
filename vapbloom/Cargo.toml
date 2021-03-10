@@ -1,13 +1,15 @@
 [package]
-name = "ethbloom"
+name = "vapbloom"
 version = "0.10.0"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "Ethereum bloom filter"
+description = "vapory bloom filter"
 license = "MIT OR Apache-2.0"
-documentation = "https://docs.rs/ethbloom"
-homepage = "https://github.com/paritytech/parity-common"
-repository = "https://github.com/paritytech/parity-common"
 edition = "2018"
+keywords = [ "tetcoin", "tetcore", "vapory" ]
+categories = [ "cryptography::cryptocurrencies" ]
+homepage = "https://tetcoin.org"
+repository = "https://github.com/tetcoin/tetsy-common"
+documentation = "https://docs.rs/vapbloom"
 
 [dependencies]
 tiny-keccak = { version = "2.0", features = ["keccak"] }
