@@ -31,6 +31,6 @@ tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.7"
 rand = "0.8.0"
 tempfile = "3.1.0"
 tetsy-keccak-hash = { path = "../tetsy-keccak-hash" }
-sysinfo = "0.15.3"
+sysinfo = "0.17.1"
 ctrlc = "3.1.4"
 chrono = "0.4"
