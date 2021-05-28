@@ -3,6 +3,8 @@ This repository is a collection of crates used in [Tetcoin](https://tetcoin.org/
 
 [![appveyor](https://img.shields.io/appveyor/build/xdv/tetsy-common)](https://ci.appveyor.com/project/xdv/tetsy-common) [![Rust - Debug Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-debug.yml/badge.svg)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-debug.yml) [![Rust - Release Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml/badge.svg)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml)
 
+[![github-contrib-anon](https://img.shields.io/github/contributors-anon/tetcoin/tetsy-common)](https://github.com/tetcoin/tetsy-common/graphs/contributors) [![github-contrib-anon](https://img.shields.io/github/contributors-anon/tetcoin/tetsy-common)](https://github.com/tetcoin/tetsy-common/graphs/contributors) 
+
 ### Libraries
 [![Bytes](https://img.shields.io/badge/Bytes-gold.svg?style=for-the-badge)](tetsy-bytes) [![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)](https://crates.io/crates/tetsy-bytes) [![crates.io-version](https://img.shields.io/crates/dv/tetsy-bytes.svg?style=for-the-badge)](https://crates.io/crates/tetsy-bytes)  
 [![Contract Address](https://img.shields.io/badge/Contract%20Address-gold.svg?style=for-the-badge)](tetsy-contract-address) [![crates.io](https://img.shields.io/crates/v/tetsy-contract-address.svg?style=for-the-badge)](https://crates.io/crates/tetsy-contract-address) [![crates.io-version](https://img.shields.io/crates/dv/tetsy-contract-address.svg?style=for-the-badge)](https://crates.io/crates/tetsy-contract-address)  
