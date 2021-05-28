@@ -7,7 +7,6 @@ This repository is a collection of crates used in [Tetcoin](https://tetcoin.org/
 
 # Libraries
 ## [Bytes](tetsy-bytes)
-![[crates.io][crates-url]][https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge]
-[crates-url]:(https://crates.io/crates/tetsy-bytes)
+![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)
 ![Crates.io (version)](https://img.shields.io/crates/dv/tetsy-bytes.svg?style=for-the-badge)
 
