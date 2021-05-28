@@ -9,8 +9,9 @@
 [![Rust - Release Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml/badge.svg)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml)
 
 # tetsy-common
-Collection of crates used in [Tetcoin](https://tetcoin.org/) projects
+This repository is a collection of crates used in [Tetcoin](https://tetcoin.org/) projects.
 
+# Libraries
 ## Bytes
 ![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)
 ![Crates.io (version)](https://img.shields.io/crates/dv/tetsy-bytes.svg?style=for-the-badge)
