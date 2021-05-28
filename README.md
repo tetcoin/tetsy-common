@@ -1,4 +1,4 @@
-![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge?style=for-the-badge)
+![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)
 ![Crates.io (version)](https://img.shields.io/crates/dv/tetsy-bytes/0.1.2-alpha?style=for-the-badge)
 
 [![Build Status travis][travis-image]][travis-url]
