@@ -1,7 +1,7 @@
 # ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white) [![tetsy-common](https://img.shields.io/badge/tetsy%20common-gold.svg?style=for-the-badge)](#)
 This repository is a collection of crates used in [Tetcoin](https://tetcoin.org/) projects.
 
-[![appveyor](https://img.shields.io/appveyor/build/xdv/tetsy-common?style=for-the-badge)](https://ci.appveyor.com/project/xdv/tetsy-common) [![Rust - Debug Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-debug.yml/badge.svg?style=for-the-badge)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-debug.yml) [![Rust - Release Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml/badge.svg?style=for-the-badge)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml)
+[![appveyor](https://img.shields.io/appveyor/build/xdv/tetsy-common)](https://ci.appveyor.com/project/xdv/tetsy-common) [![Rust - Debug Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-debug.yml/badge.svg)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-debug.yml) [![Rust - Release Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml/badge.svg)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml)
 
 ### Libraries
 [![Bytes](https://img.shields.io/badge/Bytes-gold.svg?style=for-the-badge)](tetsy-bytes) [![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)](https://crates.io/crates/tetsy-bytes) [![crates.io-version](https://img.shields.io/crates/dv/tetsy-bytes.svg?style=for-the-badge)](https://crates.io/crates/tetsy-bytes)  
