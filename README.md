@@ -1,4 +1,4 @@
-![crates.io](https://img.shields.io/crates/v/$CRATE.svg)
+![crates.io](https://img.shields.io/crates/v/tetsy-common.svg)
 
 [![Build Status travis][travis-image]][travis-url]
 
