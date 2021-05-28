@@ -1,5 +1,4 @@
-![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)
-![Crates.io (version)](https://img.shields.io/crates/dv/tetsy-bytes.svg?style=for-the-badge)
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 
 [![Build Status travis][travis-image]][travis-url]
 
@@ -11,3 +10,7 @@
 
 # tetsy-common
 Collection of crates used in [Tetcoin](https://tetcoin.org/) projects
+
+## Bytes
+![crates.io](https://img.shields.io/crates/v/tetsy-bytes.svg?style=for-the-badge)
+![Crates.io (version)](https://img.shields.io/crates/dv/tetsy-bytes.svg?style=for-the-badge)
