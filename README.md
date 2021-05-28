@@ -10,4 +10,4 @@
 [![Rust - Release Build](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml/badge.svg)](https://github.com/tetcoin/tetsy-common/actions/workflows/rust-release.yml)
 
 # tetsy-common
-Collection of crates used in [Tetcoin Technologies](https://www.tetcoin.org/) projects
+Collection of crates used in [Tetcoin](https://tetcoin.org/) projects
