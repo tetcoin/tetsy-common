@@ -1,4 +1,4 @@
-# ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white) tetsy-common
+# ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white) [![tetsy-common](https://img.shields.io/badge/Bytes-gold.svg?style=for-the-badge)](#)
 This repository is a collection of crates used in [Tetcoin](https://tetcoin.org/) projects.
 
 [travis-image]: https://travis-ci.com/tetcoin/tetsy-common.svg?branch=master
