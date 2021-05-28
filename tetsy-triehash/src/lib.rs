@@ -43,7 +43,7 @@ fn shared_prefix_len<T: Eq>(first: &[T], second: &[T]) -> usize {
 /// use hex_literal::hex;
 /// use vapory_types::H256;
 /// use tetsy_triehash::ordered_trie_root;
-/// use keccak_hasher::KeccakHasher;
+/// use tetsy_keccak_hasher::KeccakHasher;
 ///
 /// let v = &["doe", "reindeer"];
 /// let root = H256::from(hex!("e766d5d51b89dc39d981b41bda63248d7abce4f0225eefd023792a540bcffee3"));
@@ -65,7 +65,7 @@ where
 /// use hex_literal::hex;
 /// use tetsy_triehash::trie_root;
 /// use vapory_types::H256;
-/// use keccak_hasher::KeccakHasher;
+/// use tetsy_keccak_hasher::KeccakHasher;
 ///
 /// let v = vec![
 /// 	("doe", "reindeer"),
@@ -112,7 +112,7 @@ where
 /// use hex_literal::hex;
 /// use vapory_types::H256;
 /// use tetsy_triehash::sec_trie_root;
-/// use keccak_hasher::KeccakHasher;
+/// use tetsy_keccak_hasher::KeccakHasher;
 ///
 /// let v = vec![
 /// 	("doe", "reindeer"),

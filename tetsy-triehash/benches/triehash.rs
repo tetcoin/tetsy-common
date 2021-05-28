@@ -8,7 +8,7 @@
 
 use criterion::{criterion_group, criterion_main, Criterion};
 use vapory_types::H256;
-use keccak_hasher::KeccakHasher;
+use tetsy_keccak_hasher::KeccakHasher;
 use tiny_keccak::{Hasher, Keccak};
 use trie_standardmap::{Alphabet, StandardMap, ValueMode};
 use tetsy_triehash::trie_root;

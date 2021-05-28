@@ -14,13 +14,13 @@ struct ParseQuotes {
 	list: TokenStream,
 	takes_index: bool,
 }
-
+// kedia:  similar tetsy_rlp may have to revert to rlp as bug was missing extern crate rlp
 fn decodable_parse_quotes() -> ParseQuotes {
-	ParseQuotes { single: quote! { tetsy_rlp.val_at }, list: quote! { tetsy_rlp.list_at }, takes_index: true }
+	ParseQuotes { single: quote! { rlp.val_at }, list: quote! { rlp.list_at }, takes_index: true }
 }
 
 fn decodable_wrapper_parse_quotes() -> ParseQuotes {
-	ParseQuotes { single: quote! { tetsy_rlp.as_val }, list: quote! { tetsy_rlp.as_list }, takes_index: false }
+	ParseQuotes { single: quote! { rlp.as_val }, list: quote! { rlp.as_list }, takes_index: false }
 }
 
 pub fn impl_decodable(ast: &syn::DeriveInput) -> TokenStream {
@@ -41,7 +41,7 @@ pub fn impl_decodable(ast: &syn::DeriveInput) -> TokenStream {
 
 	let impl_block = quote! {
 		impl tetsy_rlp::Decodable for #name {
-			fn decode(tetsy_rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
+			fn decode(rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
 				let result = #name {
 					#(#stmts)*
 				};
@@ -81,7 +81,7 @@ pub fn impl_decodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 
 	let impl_block = quote! {
 		impl tetsy_rlp::Decodable for #name {
-			fn decode(tetsy_rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
+			fn decode(rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
 				let result = #name {
 					#stmt
 				};
@@ -121,7 +121,7 @@ fn decodable_field(
 	let list = quotes.list;
 
 	let attributes = &field.attrs;
-	let default = if let Some(attr) = attributes.iter().find(|attr| attr.path.is_ident("rlp")) {
+	let default = if let Some(attr) = attributes.iter().find(|attr| attr.path.is_ident("tetsy_rlp")) {
 		if *default_attribute_encountered {
 			panic!("only 1 #[rlp(default)] attribute is allowed in a struct")
 		}
