@@ -9,7 +9,7 @@
 use tetsy_rlp::{decode, encode};
 use tetsy_rlp_derive::{RlpDecodable, RlpDecodableWrapper, RlpEncodable, RlpEncodableWrapper};
 
-#[derive(Debug, PartialEq, RlpEncodable, RlpDecodable)]
+#[derive(Debug, PartialEq, tetsy_rlp_derive::RlpEncodable, tetsy_rlp_derive::RlpDecodable)]
 struct Item {
 	a: String,
 }
