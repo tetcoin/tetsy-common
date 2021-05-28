@@ -16,6 +16,8 @@ install:
   - set PATH=%PATH%;C:\Users\appveyor\.cargo\bin
   - rustc -vV
   - cargo -vV
+  - rustup install nightly
+  - rustup target add wasm32-unknown-unknown --toolchain nightly
 
 build_script:
   - cargo check --tests
