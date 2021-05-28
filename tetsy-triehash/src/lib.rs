@@ -263,7 +263,7 @@ mod tests {
 	use super::{hex_prefix_encode, shared_prefix_len, trie_root};
 	use vapory_types::H256;
 	use hex_literal::hex;
-	use keccak_hasher::KeccakHasher;
+	use tetsy_keccak_hasher::KeccakHasher;
 
 	#[test]
 	fn test_hex_prefix_encode() {

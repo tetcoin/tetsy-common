@@ -27,7 +27,7 @@ use de::{impl_decodable, impl_decodable_wrapper};
 use en::{impl_encodable, impl_encodable_wrapper};
 use proc_macro::TokenStream;
 
-#[proc_macro_derive(RlpEncodable, attributes(rlp))]
+#[proc_macro_derive(RlpEncodable, attributes(tetsy_rlp))]
 pub fn encodable(input: TokenStream) -> TokenStream {
 	let ast = syn::parse(input).unwrap();
 	let gen = impl_encodable(&ast);
@@ -41,7 +41,7 @@ pub fn encodable_wrapper(input: TokenStream) -> TokenStream {
 	gen.into()
 }
 
-#[proc_macro_derive(RlpDecodable, attributes(rlp))]
+#[proc_macro_derive(RlpDecodable, attributes(tetsy_rlp))]
 pub fn decodable(input: TokenStream) -> TokenStream {
 	let ast = syn::parse(input).unwrap();
 	let gen = impl_decodable(&ast);

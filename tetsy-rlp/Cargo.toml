@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-rlp"
-version = "0.5.0"
+version = "0.5.1"
 description = "Tetsy Recursive-length prefix encoding, decoding, and compression"
 repository = "https://github.com/tetcoin/tetsy-common"
 license = "MIT OR Apache-2.0"

@@ -16,11 +16,11 @@ struct ParseQuotes {
 }
 
 fn decodable_parse_quotes() -> ParseQuotes {
-	ParseQuotes { single: quote! { rlp.val_at }, list: quote! { rlp.list_at }, takes_index: true }
+	ParseQuotes { single: quote! { tetsy_rlp.val_at }, list: quote! { tetsy_rlp.list_at }, takes_index: true }
 }
 
 fn decodable_wrapper_parse_quotes() -> ParseQuotes {
-	ParseQuotes { single: quote! { rlp.as_val }, list: quote! { rlp.as_list }, takes_index: false }
+	ParseQuotes { single: quote! { tetsy_rlp.as_val }, list: quote! { tetsy_rlp.as_list }, takes_index: false }
 }
 
 pub fn impl_decodable(ast: &syn::DeriveInput) -> TokenStream {
@@ -41,7 +41,7 @@ pub fn impl_decodable(ast: &syn::DeriveInput) -> TokenStream {
 
 	let impl_block = quote! {
 		impl tetsy_rlp::Decodable for #name {
-			fn decode(rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
+			fn decode(tetsy_rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
 				let result = #name {
 					#(#stmts)*
 				};
@@ -53,7 +53,7 @@ pub fn impl_decodable(ast: &syn::DeriveInput) -> TokenStream {
 
 	quote! {
 		const _: () = {
-			extern crate rlp;
+			extern crate tetsy_rlp;
 			#impl_block
 		};
 	}
@@ -81,7 +81,7 @@ pub fn impl_decodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 
 	let impl_block = quote! {
 		impl tetsy_rlp::Decodable for #name {
-			fn decode(rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
+			fn decode(tetsy_rlp: &tetsy_rlp::Rlp) -> Result<Self, tetsy_rlp::DecoderError> {
 				let result = #name {
 					#stmt
 				};
@@ -93,7 +93,7 @@ pub fn impl_decodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 
 	quote! {
 		const _: () = {
-			extern crate rlp;
+			extern crate tetsy_rlp;
 			#impl_block
 		};
 	}

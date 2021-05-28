@@ -49,7 +49,7 @@ fn test_encode_item_default() {
 	struct ItemDefault {
 		a: String,
 		/// It works with other attributes.
-		#[rlp(default)]
+		#[tetsy_rlp(default)]
 		b: Option<Vec<u8>>,
 	}
 

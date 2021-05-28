@@ -32,7 +32,7 @@ pub fn impl_encodable(ast: &syn::DeriveInput) -> TokenStream {
 
 	quote! {
 		const _: () = {
-			extern crate rlp;
+			extern crate tetsy_rlp;
 			#impl_block
 		};
 	}
@@ -67,7 +67,7 @@ pub fn impl_encodable_wrapper(ast: &syn::DeriveInput) -> TokenStream {
 
 	quote! {
 		const _: () = {
-			extern crate rlp;
+			extern crate tetsy_rlp;
 			#impl_block
 		};
 	}
