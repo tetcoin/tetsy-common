@@ -1,4 +1,4 @@
-name: Rust - Debug Build
+name: Rust - Release Build
 
 on:
   push:
