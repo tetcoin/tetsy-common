@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-impl-rlp"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/tetcoin/tetsy-common"
@@ -8,7 +8,7 @@ description = "Tetsy RLP serialization support for uint and fixed hash."
 edition = "2018"
 
 [dependencies]
-tetsy-rlp = { version = "0.5", path = "../../../tetsy-rlp", default-features = false }
+tetsy-rlp = { version = "0.5.1", path = "../../../tetsy-rlp", default-features = false }
 
 [features]
 default = ["std"]

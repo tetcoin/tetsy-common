@@ -1,8 +1,8 @@
 [package]
 name = "vapbloom"
-version = "0.11.0"
+version = "0.11.1"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "Vapory bloom filter"
+description = "Tetsy Common Vapory Bloom Filter"
 license = "MIT OR Apache-2.0"
 documentation = "https://docs.rs/vapbloom"
 homepage = "https://github.com/tetcoin/tetsy-common"
@@ -12,10 +12,10 @@ edition = "2018"
 [dependencies]
 tiny-keccak = { version = "2.0", features = ["keccak"] }
 crunchy = { version = "0.2.2", default-features = false, features = ["limit_256"] }
-tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7", default-features = false }
-tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3", default-features = false, optional = true }
-tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
-tetsy-impl-codec = { version = "0.5.0", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
+tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7.1", default-features = false }
+tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3.2", default-features = false, optional = true }
+tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3.1", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.5.1", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
 
 [dev-dependencies]
 criterion = "0.3.0"

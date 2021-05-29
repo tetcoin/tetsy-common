@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-triehash"
-version = "0.8.5"
+version = "0.8.6"
 authors = ["Parity Technologies <admin@parity.io>"]
 description = "Tetsy Flavored In-memory Patricia Trie Operations"
 repository = "https://github.com/tetcoin/tetsy-common"
@@ -9,12 +9,12 @@ edition = "2018"
 
 [dependencies]
 tetsy-hash-db = { version = "0.15.2", default-features = false }
-tetsy-rlp = { version = "0.5", path = "../tetsy-rlp", default-features = false }
+tetsy-rlp = { version = "0.5.1", path = "../tetsy-rlp", default-features = false }
 
 [dev-dependencies]
 criterion = "0.3.0"
 tetsy-keccak-hasher = "0.15.2"
-vapory-types = { version = "0.11.0", path = "../vapory-types" }
+vapory-types = { version = "0.11.1", path = "../vapory-types" }
 tiny-keccak = { version = "2.0", features = ["keccak"] }
 tetsy-trie-standardmap = "0.15.2"
 hex-literal = "0.3.1"

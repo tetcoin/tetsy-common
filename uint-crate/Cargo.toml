@@ -1,10 +1,10 @@
 [package]
-description = "Large fixed-size tetsy integer arithmetic"
+description = "Tetsy Common Large Fixed-Size Integer Arithmetic"
 homepage = "http://tetcoin.org"
 repository = "https://github.com/tetcoin/tetsy-common"
 license = "MIT OR Apache-2.0"
 name = "uint-crate"
-version = "0.9.0"
+version = "0.9.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 readme = "README.md"
 edition = "2018"

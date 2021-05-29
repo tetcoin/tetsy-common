@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-kvdb-rocksdb"
-version = "0.11.0"
+version = "0.11.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 repository = "https://github.com/tetcoin/tetsy-common"
 description = "tetsy-kvdb implementation backed by RocksDB"
@@ -14,7 +14,7 @@ harness = false
 [dependencies]
 smallvec = "1.0.0"
 fs-swap = "0.2.5"
-tetsy-kvdb = { path = "../tetsy-kvdb", version = "0.9" }
+tetsy-kvdb = { path = "../tetsy-kvdb", version = "0.9.1" }
 log = "0.4.8"
 num_cpus = "1.10.1"
 parking_lot = "0.11.1"
@@ -27,7 +27,7 @@ tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9", default-features
 alloc_counter = "0.0.4"
 criterion = "0.3"
 vapory-types = { path = "../vapory-types" }
-tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.7" }
+tetsy-kvdb-shared-tests = { path = "../tetsy-kvdb-shared-tests", version = "0.7.1" }
 rand = "0.8.0"
 tempfile = "3.1.0"
 tetsy-keccak-hash = { path = "../tetsy-keccak-hash" }

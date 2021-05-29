@@ -1,6 +1,6 @@
 [package]
 name = "vapory-types"
-version = "0.11.0"
+version = "0.11.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/tetcoin/tetsy-common"
@@ -8,13 +8,13 @@ description = "Vapory types"
 edition = "2018"
 
 [dependencies]
-vapbloom = { path = "../vapbloom", version = "0.11", default-features = false }
-tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7", default-features = false, features = ["byteorder", "rustc-hex"] }
-uint-crate = { path = "../uint-crate", package = "uint-crate", version = "0.9", default-features = false }
-tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.9", features = ["byteorder", "rustc-hex"], default-features = false }
-tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3.0", default-features = false, optional = true }
-tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3", default-features = false, optional = true }
-tetsy-impl-codec = { version = "0.5.0", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
+vapbloom = { path = "../vapbloom", version = "0.11.1", default-features = false }
+tetsy-fixed-hash = { path = "../tetsy-fixed-hash", version = "0.7.1", default-features = false, features = ["byteorder", "rustc-hex"] }
+uint-crate = { path = "../uint-crate", package = "uint-crate", version = "0.9.1", default-features = false }
+tetsy-primitive-types = { path = "../tetsy-primitive-types", version = "0.9.1", features = ["byteorder", "rustc-hex"], default-features = false }
+tetsy-impl-serde = { path = "../tetsy-primitive-types/impls/serde", version = "0.3.2", default-features = false, optional = true }
+tetsy-impl-rlp = { path = "../tetsy-primitive-types/impls/rlp", version = "0.3.1", default-features = false, optional = true }
+tetsy-impl-codec = { version = "0.5.1", path = "../tetsy-primitive-types/impls/codec", default-features = false, optional = true }
 
 [dev-dependencies]
 serde_json = "1.0.41"

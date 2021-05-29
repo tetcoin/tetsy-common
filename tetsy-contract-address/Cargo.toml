@@ -1,6 +1,6 @@
 [package]
 name = "tetsy-contract-address"
-version = "0.6.0"
+version = "0.6.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/tetcoin/tetsy-common"
@@ -11,9 +11,9 @@ edition = "2018"
 readme = "README.md"
 
 [dependencies]
-vapory-types = { version = "0.11.0", path = "../vapory-types" }
-tetsy-rlp = { version = "0.5", path = "../tetsy-rlp" }
-tetsy-keccak-hash = { version = "0.7", path = "../tetsy-keccak-hash", default-features = false }
+vapory-types = { version = "0.11.1", path = "../vapory-types" }
+tetsy-rlp = { version = "0.5.1", path = "../tetsy-rlp" }
+tetsy-keccak-hash = { version = "0.7.1", path = "../tetsy-keccak-hash", default-features = false }
 
 [features]
 default = []
