@@ -9,4 +9,4 @@ edition = "2018"
 
 [dependencies]
 smallvec = "1.0.0"
-tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9", default-features = false }
+tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9.1", default-features = false }

@@ -8,7 +8,7 @@ license = "MIT OR Apache-2.0"
 edition = "2018"
 
 [dependencies]
-tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9", default-features = false, features = ["std"] }
+tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9.1", default-features = false, features = ["std"] }
 parking_lot = "0.11.1"
 tetsy-kvdb = { version = "0.9.1", path = "../tetsy-kvdb" }
 

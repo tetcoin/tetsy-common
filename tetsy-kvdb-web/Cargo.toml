@@ -16,7 +16,7 @@ tetsy-kvdb-memorydb = { version = "0.9.1", path = "../tetsy-kvdb-memorydb" }
 futures = "0.3.8"
 log = "0.4.11"
 send_wrapper = "0.5.0"
-tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9", default-features = false }
+tetsy-util-mem = { path = "../tetsy-util-mem", version = "0.9.1", default-features = false }
 # TODO: https://github.com/tetcoin/tetsy-common/issues/479
 # This is hack to enable `wasm-bindgen` feature of `parking_lot` in other dependencies.
 # Thus, it's not direct dependency and do not remove until a proper fix exists.
