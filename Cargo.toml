@@ -21,6 +21,7 @@ members = [
 	"tetsy-util-mem",
 	"tetsy-primitive-types",
 	"vapory-types",
+	"lite-types",
 	"vapbloom",
 	"tetsy-util-mem/derive"
 ]
